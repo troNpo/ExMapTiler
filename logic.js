@@ -1,93 +1,95 @@
-// ===============================
-// CONFIGURACIÓN DE RUTA ÚNICA
-// ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-const STYLE_PATH = "./style/";
+  // ===============================
+  // CONFIGURACIÓN DE RUTA ÚNICA
+  // ===============================
 
-const apiKeyInput = document.getElementById("apikey");
-const selector = document.getElementById("style-selector");
-const downloadBtn = document.getElementById("download-btn");
-const statusBox = document.getElementById("status");
+  const STYLE_PATH = "./style/";
 
-// ===============================
-// FUNCIÓN PRINCIPAL DE DESCARGA
-// ===============================
+  const apiKeyInput = document.getElementById("apikey");
+  const selector = document.getElementById("style-selector");
+  const downloadBtn = document.getElementById("download-btn");
+  const statusBox = document.getElementById("status");
 
-downloadBtn.addEventListener("click", async () => {
-  clearStatus();
+  // ===============================
+  // FUNCIÓN PRINCIPAL DE DESCARGA
+  // ===============================
 
-  const apiKey = apiKeyInput.value.trim();
-  if (!apiKey) {
-    showStatus("Introduce tu API Key de MapTiler.", true);
-    alert("La API Key es obligatoria para descargar el estilo.");
-    return;
-  }
+  downloadBtn.addEventListener("click", async () => {
+    clearStatus();
 
-  const fileName = selector.value;
-  if (!fileName) {
-    showStatus("Selecciona un estilo válido.", true);
-    return;
-  }
-
-  const fullPath = STYLE_PATH + fileName;
-
-  try {
-    const response = await fetch(fullPath);
-
-    if (!response.ok) {
-      showStatus("No se pudo cargar el estilo: " + fullPath, true);
-      alert("No se pudo cargar el estilo:\n" + fullPath);
+    const apiKey = apiKeyInput.value.trim();
+    if (!apiKey) {
+      showStatus("Introduce tu API Key de MapTiler.", true);
+      alert("La API Key es obligatoria para descargar el estilo.");
       return;
     }
 
-    let json = await response.text();
+    const fileName = selector.value;
+    if (!fileName) {
+      showStatus("Selecciona un estilo válido.", true);
+      return;
+    }
 
-    // Sustituir marcador {{API_KEY}} por la clave real
-    json = json.replace(/{{API_KEY}}/g, apiKey);
+    const fullPath = STYLE_PATH + fileName;
 
-    downloadFile(json, fileName);
-    showStatus("Estilo descargado correctamente: " + fileName, false);
+    try {
+      const response = await fetch(fullPath);
 
-  } catch (error) {
-    console.error(error);
-    showStatus("Error al procesar el archivo: " + error, true);
-    alert("Error al procesar el archivo:\n" + error);
+      if (!response.ok) {
+        showStatus("No se pudo cargar el estilo: " + fullPath, true);
+        alert("No se pudo cargar el estilo:\n" + fullPath);
+        return;
+      }
+
+      let json = await response.text();
+
+      // Sustituir marcador {{API_KEY}} por la clave real
+      json = json.replace(/{{API_KEY}}/g, apiKey);
+
+      downloadFile(json, fileName);
+      showStatus("Estilo descargado correctamente: " + fileName, false);
+
+    } catch (error) {
+      console.error(error);
+      showStatus("Error al procesar el archivo: " + error, true);
+      alert("Error al procesar el archivo:\n" + error);
+    }
+  });
+
+  // ===============================
+  // FUNCIÓN PARA DESCARGAR ARCHIVOS
+  // ===============================
+
+  function downloadFile(content, fileName) {
+    const blob = new Blob([content], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = fileName;
+    a.click();
+
+    URL.revokeObjectURL(url);
   }
-});
 
-// ===============================
-// FUNCIÓN PARA DESCARGAR ARCHIVOS
-// ===============================
+  // ===============================
+  // FUNCIONES DE ESTADO VISUAL
+  // ===============================
 
-function downloadFile(content, fileName) {
-  const blob = new Blob([content], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
+  function showStatus(message, isError) {
+    statusBox.textContent = message;
+    statusBox.style.color = isError ? "#ff9b9b" : "#9bffb5";
+  }
 
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = fileName;
-  a.click();
+  function clearStatus() {
+    statusBox.textContent = "";
+  }
 
-  URL.revokeObjectURL(url);
-}
+  // ===============================
+  // AYUDA DESPLEGABLE
+  // ===============================
 
-// ===============================
-// FUNCIONES DE ESTADO VISUAL
-// ===============================
-
-function showStatus(message, isError) {
-  statusBox.textContent = message;
-  statusBox.style.color = isError ? "#ff9b9b" : "#9bffb5";
-}
-
-function clearStatus() {
-  statusBox.textContent = "";
-}
-// ===============================
-// AYUDA DESPLEGABLE
-// ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
   const helpToggle = document.getElementById("help-toggle");
   const guideBox = document.getElementById("guide");
 
@@ -96,5 +98,5 @@ document.addEventListener("DOMContentLoaded", () => {
     guideBox.style.display = isVisible ? "none" : "block";
     helpToggle.textContent = isVisible ? "Ayuda ▾" : "Ayuda ▴";
   });
-});
 
+});
