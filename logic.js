@@ -2,8 +2,8 @@
 // CONFIGURACIÓN DE RUTAS
 // ===============================
 
-const CLASSIC_PATH = "./Style/Clasic/";
-const CUSTOM_PATH = "./Custom/";
+const CLASSIC_PATH = "./style/clasic/";
+const CUSTOM_PATH = "./custom/";
 
 const apiKeyInput = document.getElementById("apikey");
 const selector = document.getElementById("style-selector");
