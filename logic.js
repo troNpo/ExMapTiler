@@ -2,13 +2,9 @@
 // CONFIGURACIÓN MODULAR DE ESTILOS
 // ===============================
 
-// Carpeta de estilos clásicos
 const CLASSIC_PATH = "./Style/Clasic/";
-
-// Carpeta de estilos personalizados
 const CUSTOM_PATH = "./Custom/";
 
-// Selectores del HTML
 const apiKeyInput = document.getElementById("apikey");
 const selectClassic = document.getElementById("style-maptile");
 const selectCustom = document.getElementById("style-tronpo");
@@ -26,18 +22,15 @@ downloadBtn.addEventListener("click", async () => {
     return;
   }
 
-  // Determinar qué selector está activo
   const classicValue = selectClassic.value;
   const customValue = selectCustom.value;
 
-  // Si el usuario selecciona un estilo clásico
   let fileName = classicValue || customValue;
   let filePath = classicValue ? CLASSIC_PATH : CUSTOM_PATH;
 
   const fullPath = filePath + fileName;
 
   try {
-    // Descargar el archivo original
     const response = await fetch(fullPath);
 
     if (!response.ok) {
@@ -47,10 +40,9 @@ downloadBtn.addEventListener("click", async () => {
 
     let json = await response.text();
 
-    // Reemplazar la API key antigua por la nueva
-    json = json.replace(/key=[A-Za-z0-9]+/g, `key=${apiKey}`);
+    // Sustituir marcador {{API_KEY}} por la clave real
+    json = json.replace(/{{API_KEY}}/g, apiKey);
 
-    // Descargar el archivo modificado
     downloadFile(json, fileName);
 
   } catch (error) {
@@ -73,3 +65,4 @@ function downloadFile(content, fileName) {
 
   URL.revokeObjectURL(url);
 }
+
