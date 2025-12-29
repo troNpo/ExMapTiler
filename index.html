@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Descargar Estilo MapTiler</title>
+
   <style>
     body {
       background-color: #0a0a0a;
@@ -40,7 +41,42 @@
       text-align: center;
       font-size: 12px;
       color: #bbbbbb;
+      margin-bottom: 10px;
+    }
+
+    .help-toggle {
+      margin-top: 5px;
+      font-size: 13px;
+      color: #ff4c4c;
+      cursor: pointer;
+      text-align: right;
+      user-select: none;
+      transition: color 0.2s ease;
+    }
+
+    .help-toggle:hover {
+      color: #ff6b6b;
+    }
+
+    .guide {
+      margin-top: 10px;
       margin-bottom: 18px;
+      padding: 10px;
+      background-color: #1a0b0b;
+      border-left: 3px solid #ff2e2e;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #e6e6e6;
+      line-height: 1.45;
+    }
+
+    .guide a {
+      color: #ff6b6b;
+      text-decoration: none;
+    }
+
+    .guide a:hover {
+      text-decoration: underline;
     }
 
     label {
@@ -103,11 +139,35 @@
       background: linear-gradient(90deg, #ff1f1f, #ff3838);
     }
 
-    .status {
-      margin-top: 14px;
-      font-size: 12px;
-      min-height: 16px;
+    .console {
+      margin-top: 20px;
+      background-color: #0d0d0d;
+      border: 1px solid #ff2e2e;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: "SF Mono", "Roboto Mono", monospace;
+      font-size: 13px;
+      color: #e6e6e6;
+      height: 140px;
+      overflow-y: auto;
+      white-space: pre-line;
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.25);
+    }
+
+    .console-line {
+      margin-bottom: 4px;
+    }
+
+    .console-success {
+      color: #9bffb5;
+    }
+
+    .console-error {
       color: #ff9b9b;
+    }
+
+    .console-info {
+      color: #ffdf9b;
     }
   </style>
 </head>
@@ -117,13 +177,22 @@
     <h2>Estilos MapTiler</h2>
     <div class="subtitle">Descarga lista para OruxMaps</div>
 
+    <div class="help-toggle" id="help-toggle">Ayuda ▾</div>
+
+    <div class="guide" id="guide" style="display:none;">
+      <strong>Guía rápida</strong><br>
+      1. Introduce tu API Key de MapTiler<br>
+      2. Selecciona un estilo<br>
+      3. Pulsa “Descargar estilo”<br>
+      4. Usa el archivo en OruxMaps<br><br>
+
+      <strong>¿Cómo conseguir tu API Key?</strong><br>
+      • Crea una cuenta gratuita en <a href="https://cloud.maptiler.com" target="_blank">MapTiler Cloud</a><br>
+      • Entra en tu panel → “API Keys” → copia tu clave<br>
+    </div>
+
     <label for="apikey">API Key de MapTiler</label>
-    <input
-      type="text"
-      id="apikey"
-      placeholder="Introduce tu API Key (obligatoria)"
-      autocomplete="off"
-    >
+    <input type="text" id="apikey" placeholder="Introduce tu API Key (obligatoria)" autocomplete="off">
 
     <label for="style-selector">Selecciona un estilo</label>
     <select id="style-selector">
@@ -143,7 +212,8 @@
     </select>
 
     <button id="download-btn" class="btn">Descargar estilo</button>
-    <div id="status" class="status"></div>
+
+    <div id="console" class="console"></div>
   </div>
 
   <script src="logic.js"></script>
