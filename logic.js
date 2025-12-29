@@ -1,28 +1,13 @@
 // ===============================
-// CONFIGURACIÓN MODULAR DE ESTILOS
+// CONFIGURACIÓN DE RUTAS
 // ===============================
 
 const CLASSIC_PATH = "./Style/Clasic/";
 const CUSTOM_PATH = "./Custom/";
 
 const apiKeyInput = document.getElementById("apikey");
-const selectClassic = document.getElementById("style-maptile");
-const selectCustom = document.getElementById("style-tronpo");
+const selector = document.getElementById("style-selector");
 const downloadBtn = document.getElementById("download-btn");
-
-// ===============================
-// CONTROL DE SELECTOR ACTIVO
-// ===============================
-
-let activeSelector = "classic";
-
-selectClassic.addEventListener("change", () => {
-  activeSelector = "classic";
-});
-
-selectCustom.addEventListener("change", () => {
-  activeSelector = "custom";
-});
 
 // ===============================
 // FUNCIÓN PRINCIPAL DE DESCARGA
@@ -36,16 +21,10 @@ downloadBtn.addEventListener("click", async () => {
     return;
   }
 
-  let fileName, filePath;
+  const fileName = selector.value;
+  const type = selector.selectedOptions[0].dataset.type;
 
-  if (activeSelector === "classic") {
-    fileName = selectClassic.value;
-    filePath = CLASSIC_PATH;
-  } else {
-    fileName = selectCustom.value;
-    filePath = CUSTOM_PATH;
-  }
-
+  const filePath = type === "classic" ? CLASSIC_PATH : CUSTOM_PATH;
   const fullPath = filePath + fileName;
 
   try {
