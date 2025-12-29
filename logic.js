@@ -87,13 +87,14 @@ function clearStatus() {
 // AYUDA DESPLEGABLE
 // ===============================
 
-const helpToggle = document.getElementById("help-toggle");
-const guideBox = document.getElementById("guide");
+document.addEventListener("DOMContentLoaded", () => {
+  const helpToggle = document.getElementById("help-toggle");
+  const guideBox = document.getElementById("guide");
 
-helpToggle.addEventListener("click", () => {
-  const isVisible = guideBox.style.display === "block";
-
-  guideBox.style.display = isVisible ? "none" : "block";
-  helpToggle.textContent = isVisible ? "Ayuda ▾" : "Ayuda ▴";
+  helpToggle.addEventListener("click", () => {
+    const isVisible = guideBox.style.display === "block";
+    guideBox.style.display = isVisible ? "none" : "block";
+    helpToggle.textContent = isVisible ? "Ayuda ▾" : "Ayuda ▴";
+  });
 });
 
