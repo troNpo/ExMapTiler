@@ -1,20 +1,109 @@
-<label for="style-selector">Selecciona un estilo</label>
-<select id="style-selector">
-  <optgroup label="Classic">
-    <option value="outdoor.map.json">Outdoor</option>
-    <option value="openstreetmap.map.json">OpenStreetMap</option>
-    <option value="streets.map.json">Streets</option>
-    <option value="satellite.map.json">Satellite</option>
-    <option value="topo.map.json">Topo</option>
-    <option value="winter.map.json">Winter</option>
-  </optgroup>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Descargar Estilo MapTiler</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f2f2f2;
+      font-family: -apple-system, Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      padding-top: 60px;
+    }
 
-  <optgroup label="Custom">
-    <option value="outron.map.json">Outron</option>
-    <option value="outron-dark.map.json">Outron Dark</option>
-    <option value="satron.map.json">Satron</option>
-    <option value="satron-winter.map.json">Satron Winter</option>
-  </optgroup>
-</select>
+    .panel {
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      border: 1px solid #ff2e2e;
+    }
 
-<button id="download-btn" class="btn">Descargar Estilo</button>
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      font-size: 22px;
+      color: #ff4c4c;
+    }
+
+    label {
+      display: block;
+      margin-top: 18px;
+      font-size: 15px;
+      color: #cccccc;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: none;
+      background-color: #2a2a2a;
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    select optgroup {
+      color: #ff9999;
+      font-weight: bold;
+    }
+
+    .btn {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #ff2e2e;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff4c4c;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="panel">
+    <h2>Descargar Estilo MapTiler</h2>
+
+    <label for="apikey">API Key de MapTiler</label>
+    <input type="text" id="apikey" placeholder="Introduce tu API Key">
+
+    <label for="style-selector">Selecciona un estilo</label>
+    <select id="style-selector">
+      <optgroup label="Classic">
+        <option value="outdoor.map.json">Outdoor</option>
+        <option value="openstreetmap.map.json">OpenStreetMap</option>
+        <option value="streets.map.json">Streets</option>
+        <option value="satellite.map.json">Satellite</option>
+        <option value="topo.map.json">Topo</option>
+        <option value="winter.map.json">Winter</option>
+      </optgroup>
+
+      <optgroup label="Custom">
+        <option value="outron.map.json">Outron</option>
+        <option value="outron-dark.map.json">Outron Dark</option>
+        <option value="satron.map.json">Satron</option>
+        <option value="satron-winter.map.json">Satron Winter</option>
+      </optgroup>
+    </select>
+
+    <button id="download-btn" class="btn">Descargar Estilo</button>
+  </div>
+
+  <script src="logic.js"></script>
+</body>
+</html>
