@@ -11,7 +11,6 @@ A valid OruxMaps subscription to premium maps is required to access advanced fea
 
 - Vector styles compatible with MapTiler and OruxMaps.
 - Adaptations specifically tuned for full 3D viewer functionality.
-- Clear separation between classic MapTiler styles and custom styles (Outron).
 - A web console to download styles using your own MapTiler API key.
 
 ---
@@ -58,9 +57,6 @@ Steps:
    `OruxMaps/Maps`  
    (on Android or iOS, depending on your installation).  
 6. Select the style from the **map selector** inside OruxMaps.
-
----
-
 
 ---
 
