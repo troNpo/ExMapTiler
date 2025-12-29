@@ -7,23 +7,25 @@ const STYLE_PATH = "./style/";
 const apiKeyInput = document.getElementById("apikey");
 const selector = document.getElementById("style-selector");
 const downloadBtn = document.getElementById("download-btn");
+const statusBox = document.getElementById("status");
 
 // ===============================
 // FUNCIÓN PRINCIPAL DE DESCARGA
 // ===============================
 
 downloadBtn.addEventListener("click", async () => {
-  const apiKey = apiKeyInput.value.trim();
+  clearStatus();
 
+  const apiKey = apiKeyInput.value.trim();
   if (!apiKey) {
-    alert("Introduce tu API key de MapTiler");
+    showStatus("Introduce tu API Key de MapTiler.", true);
+    alert("La API Key es obligatoria para descargar el estilo.");
     return;
   }
 
   const fileName = selector.value;
-
   if (!fileName) {
-    alert("Selecciona un estilo válido.");
+    showStatus("Selecciona un estilo válido.", true);
     return;
   }
 
@@ -33,7 +35,8 @@ downloadBtn.addEventListener("click", async () => {
     const response = await fetch(fullPath);
 
     if (!response.ok) {
-      alert("No se pudo cargar el estilo: " + fullPath);
+      showStatus("No se pudo cargar el estilo: " + fullPath, true);
+      alert("No se pudo cargar el estilo:\n" + fullPath);
       return;
     }
 
@@ -43,9 +46,12 @@ downloadBtn.addEventListener("click", async () => {
     json = json.replace(/{{API_KEY}}/g, apiKey);
 
     downloadFile(json, fileName);
+    showStatus("Estilo descargado correctamente: " + fileName, false);
 
   } catch (error) {
-    alert("Error al procesar el archivo: " + error);
+    console.error(error);
+    showStatus("Error al procesar el archivo: " + error, true);
+    alert("Error al procesar el archivo:\n" + error);
   }
 });
 
@@ -63,4 +69,17 @@ function downloadFile(content, fileName) {
   a.click();
 
   URL.revokeObjectURL(url);
+}
+
+// ===============================
+// FUNCIONES DE ESTADO VISUAL
+// ===============================
+
+function showStatus(message, isError) {
+  statusBox.textContent = message;
+  statusBox.style.color = isError ? "#ff9b9b" : "#9bffb5";
+}
+
+function clearStatus() {
+  statusBox.textContent = "";
 }
