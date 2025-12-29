@@ -8,7 +8,21 @@ const CUSTOM_PATH = "./Custom/";
 const apiKeyInput = document.getElementById("apikey");
 const selectClassic = document.getElementById("style-maptile");
 const selectCustom = document.getElementById("style-tronpo");
-const downloadBtn = document.querySelector(".btn");
+const downloadBtn = document.getElementById("download-btn");
+
+// ===============================
+// CONTROL DE SELECTOR ACTIVO
+// ===============================
+
+let activeSelector = "classic";
+
+selectClassic.addEventListener("change", () => {
+  activeSelector = "classic";
+});
+
+selectCustom.addEventListener("change", () => {
+  activeSelector = "custom";
+});
 
 // ===============================
 // FUNCIÓN PRINCIPAL DE DESCARGA
@@ -22,11 +36,15 @@ downloadBtn.addEventListener("click", async () => {
     return;
   }
 
-  const classicValue = selectClassic.value;
-  const customValue = selectCustom.value;
+  let fileName, filePath;
 
-  let fileName = classicValue || customValue;
-  let filePath = classicValue ? CLASSIC_PATH : CUSTOM_PATH;
+  if (activeSelector === "classic") {
+    fileName = selectClassic.value;
+    filePath = CLASSIC_PATH;
+  } else {
+    fileName = selectCustom.value;
+    filePath = CUSTOM_PATH;
+  }
 
   const fullPath = filePath + fileName;
 
@@ -65,4 +83,3 @@ function downloadFile(content, fileName) {
 
   URL.revokeObjectURL(url);
 }
-
