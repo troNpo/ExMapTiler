@@ -12,8 +12,9 @@
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
       min-height: 100vh;
       padding-top: 50px;
     }
@@ -139,51 +140,18 @@
       background: linear-gradient(90deg, #ff1f1f, #ff3838);
     }
 
-    .console {
-      margin-top: 20px;
-      background-color: #0d0d0d;
-      border: 1px solid #ff2e2e;
-      padding: 12px;
-      border-radius: 8px;
-      font-family: "SF Mono", "Roboto Mono", monospace;
-      font-size: 13px;
-      color: #e6e6e6;
-      height: 140px;
-      overflow-y: auto;
-      white-space: pre-line;
-      box-shadow: 0 0 12px rgba(255, 0, 0, 0.25);
-    }
-
-    .console-line {
-      margin-bottom: 4px;
-    }
-
-    .console-success {
-      color: #9bffb5;
-    }
-
-    .console-error {
-      color: #ff9b9b;
-    }
-
-    .console-info {
-      color: #ffdf9b;
-    }
     .footer {
-  margin-top: 25px;
-  text-align: center;
-  font-size: 11px;
-  color: #777;
-  opacity: 0.7;
-}
-
+      margin-top: 25px;
+      text-align: center;
+      font-size: 11px;
+      color: #777;
+      opacity: 0.7;
+    }
   </style>
 </head>
-<div class="footer">
-  Map data © OpenStreetMap contributors · Tiles © MapTiler
-</div>
 
 <body>
+
   <div class="panel">
     <h2>Estilos MapTiler</h2>
     <div class="subtitle">Descarga lista para OruxMaps</div>
@@ -223,9 +191,13 @@
     </select>
 
     <button id="download-btn" class="btn">Descargar estilo</button>
-<div id="status" style="margin-top:10px; font-size:13px; min-height:18px;"></div>
 
- 
+    <div id="status" style="margin-top:10px; font-size:13px; min-height:18px;"></div>
+
+  </div>
+
+  <div class="footer">
+    Map data © OpenStreetMap contributors · Tiles © MapTiler
   </div>
 
   <script src="logic.js"></script>
