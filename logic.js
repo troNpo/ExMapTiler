@@ -1,9 +1,8 @@
 // ===============================
-// CONFIGURACIÓN DE RUTAS
+// CONFIGURACIÓN DE RUTA ÚNICA
 // ===============================
 
-const CLASSIC_PATH = "./style/clasic/";
-const CUSTOM_PATH = "./custom/";
+const STYLE_PATH = "./style/";
 
 const apiKeyInput = document.getElementById("apikey");
 const selector = document.getElementById("style-selector");
@@ -22,10 +21,13 @@ downloadBtn.addEventListener("click", async () => {
   }
 
   const fileName = selector.value;
-  const type = selector.selectedOptions[0].dataset.type;
 
-  const filePath = type === "classic" ? CLASSIC_PATH : CUSTOM_PATH;
-  const fullPath = filePath + fileName;
+  if (!fileName) {
+    alert("Selecciona un estilo válido.");
+    return;
+  }
+
+  const fullPath = STYLE_PATH + fileName;
 
   try {
     const response = await fetch(fullPath);
