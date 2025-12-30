@@ -190,13 +190,9 @@
   "pitch": 0,
 	"terrain": { "source": "mapbox-dem" },
   "sources": {
-		"sateellite": {
+		"satellite": {
       "url": "https://api.maptiler.com/tiles/satellite-v2/tiles.json?key={{API_KEY}}",
       "type": "raster"
-    },
-    "contours": {
-      "url": "https://api.maptiler.com/tiles/contours-v2/tiles.json?key={{API_KEY}}",
-      "type": "vector"
     },
     "maptiler_planet": {
       "url": "https://api.maptiler.com/tiles/v3/tiles.json?key={{API_KEY}}",
@@ -216,23 +212,7 @@
   "sprite": "https://api.maptiler.com/maps/outdoor-v2/sprite?key={{API_KEY}}",
   "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={{API_KEY}}",
   "layers": [
-    {
-  "id": "Background",
-  "type": "background",
-  "minzoom": 0,
-  "layout": {"visibility": "visible"},
-  "paint": {
-    "background-color": [
-      "interpolate",
-      ["exponential", 1],
-      ["zoom"],
-      5,
-      "hsl(70, 45%, 94%)",
-      14,
-      "hsl(95, 20%, 96%)"
-    ]
-  }
-},
+    
 {
       "id": "Satellite",
       "type": "raster",
