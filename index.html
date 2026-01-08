@@ -6,147 +6,144 @@
 
   <style>
     body {
-      background-color: #0a0a0a;
-      color: #f5f5f5;
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      min-height: 100vh;
-      padding-top: 50px;
-    }
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 12px; /* Antes 50px → ahora mucho más compacto */
+}
 
-    .panel {
-      background: radial-gradient(circle at top, #2a0000 0, #120101 45%, #050505 100%);
-      padding: 26px 22px;
-      border-radius: 14px;
-      width: 92%;
-      max-width: 420px;
-      box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
-      border: 1px solid rgba(255, 60, 60, 0.8);
-    }
+/* PANEL PRINCIPAL */
+.panel {
+  background: radial-gradient(circle at top, #2a0000 0, #120101 45%, #050505 100%);
+  padding: 18px 18px; /* Antes 26px → más compacto */
+  border-radius: 14px;
+  width: 95%; /* Antes 92% → más ancho en móvil */
+  max-width: 460px; /* Antes 420px → más cómodo */
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
+  border: 1px solid rgba(255, 60, 60, 0.8);
+}
 
-    h2 {
-      margin: 0 0 10px 0;
-      text-align: center;
-      font-size: 22px;
-      letter-spacing: 0.04em;
-      color: #ff4c4c;
-      text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-    }
+/* TÍTULO */
+h2 {
+  margin: 0 0 8px 0;
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: #ff4c4c;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
 
-    .subtitle {
-      text-align: center;
-      font-size: 12px;
-      color: #bbbbbb;
-      margin-bottom: 10px;
-    }
+/* SUBTÍTULO */
+.subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: #bbbbbb;
+  margin-bottom: 8px;
+}
 
-    .help-toggle {
-      margin-top: 5px;
-      font-size: 13px;
-      color: #ff4c4c;
-      cursor: pointer;
-      text-align: right;
-      user-select: none;
-      transition: color 0.2s ease;
-    }
+/* AYUDA */
+.help-toggle {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #ff4c4c;
+  cursor: pointer;
+  text-align: right;
+  user-select: none;
+  transition: color 0.2s ease;
+}
 
-    .help-toggle:hover {
-      color: #ff6b6b;
-    }
+.help-toggle:hover {
+  color: #ff6b6b;
+}
 
-    .guide {
-      margin-top: 10px;
-      margin-bottom: 18px;
-      padding: 10px;
-      background-color: #1a0b0b;
-      border-left: 3px solid #ff2e2e;
-      border-radius: 6px;
-      font-size: 12px;
-      color: #e6e6e6;
-      line-height: 1.45;
-    }
+.guide {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  padding: 10px;
+  background-color: #1a0b0b;
+  border-left: 3px solid #ff2e2e;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #e6e6e6;
+  line-height: 1.45;
+}
 
-    .guide a {
-      color: #ff6b6b;
-      text-decoration: none;
-    }
+/* LABELS */
+label {
+  display: block;
+  margin-top: 12px; /* Antes 16px */
+  font-size: 14px;
+  color: #dddddd;
+}
 
-    .guide a:hover {
-      text-decoration: underline;
-    }
+/* INPUTS Y SELECT */
+input,
+select {
+  width: 100%;
+  padding: 9px 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+  background-color: #1b1b1b;
+  color: #ffffff;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
 
-    label {
-      display: block;
-      margin-top: 16px;
-      font-size: 14px;
-      color: #dddddd;
-    }
+input:focus,
+select:focus {
+  border-color: #ff3b3b;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
 
-    input,
-    select {
-      width: 100%;
-      padding: 9px 10px;
-      margin-top: 6px;
-      border-radius: 8px;
-      border: 1px solid #3a3a3a;
-      background-color: #1b1b1b;
-      color: #ffffff;
-      font-size: 14px;
-      box-sizing: border-box;
-      outline: none;
-    }
+/* BOTONES */
+.btn {
+  width: 100%;
+  margin-top: 16px; /* Antes 22px */
+  padding: 12px;
+  background: linear-gradient(90deg, #ff2b2b, #ff4848);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
 
-    input:focus,
-    select:focus {
-      border-color: #ff3b3b;
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-    }
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.8);
+  background: linear-gradient(90deg, #ff1f1f, #ff3838);
+}
 
-    select optgroup {
-      color: #ff9b9b;
-      font-weight: bold;
-      background-color: #1b1b1b;
-    }
+/* CONTENEDOR DE LEYENDA */
+#legend-container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}
 
-    option {
-      background-color: #1b1b1b;
-      color: #ffffff;
-    }
+/* FOOTER */
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 11px;
+  color: #777;
+  opacity: 0.7;
+}
 
-    .btn {
-      width: 100%;
-      margin-top: 22px;
-      padding: 12px;
-      background: linear-gradient(90deg, #ff2b2b, #ff4848);
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
-    }
-
-    .btn:active {
-      transform: scale(0.97);
-      box-shadow: 0 0 6px rgba(255, 0, 0, 0.8);
-      background: linear-gradient(90deg, #ff1f1f, #ff3838);
-    }
-
-    .footer {
-      margin-top: 25px;
-      text-align: center;
-      font-size: 11px;
-      color: #777;
-      opacity: 0.7;
-    }
+  
   </style>
 </head>
 
