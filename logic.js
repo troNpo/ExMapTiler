@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     helpToggle.textContent = isVisible ? "Ayuda ▾" : "Ayuda ▴";
   });
 
-});
   // ===============================
   // LEYENDAS DINÁMICAS
   // ===============================
@@ -107,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const legendBtn = document.getElementById("legend-btn");
   const legendContainer = document.getElementById("legend-container");
 
-  // Mapa entre estilos y sus leyendas
   const legendMap = {
     "outron.map.json": "outron.html",
     "cyclotron.map.json": "cyclotron.html",
@@ -115,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "hikingtron.map.json": "hikingtron.html",
     "satron.map.json": "satron.html",
     "topo-dark.map.json": "topo-dark.html"
-    // añade más si los creas
   };
 
   function loadLegend(styleName) {
@@ -138,3 +135,4 @@ document.addEventListener("DOMContentLoaded", () => {
     loadLegend(style);
   });
 
+}); 
