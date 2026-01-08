@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body { background:#121212; color:white; font-family:sans-serif; padding:20px; }
+.legend { background:#1e1e1e; padding:20px; border-radius:8px; border:1px solid #333; max-width:1100px; margin:auto; }
+
+.legend-title { font-size:24px; font-weight:bold; color:#ff3333; margin-bottom:20px; }
+
+/* === DOS COLUMNAS === */
+.columns {
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.column {
+  flex:1;
+  min-width:300px;
+}
+
+/* === ENCABEZADOS === */
+.section-title {
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+  padding-bottom:6px;
+  border-bottom:1px solid #444;
+}
+
+.category-title {
+  font-size:15px;
+  font-weight:bold;
+  margin-top:10px;
+  color:#ccc;
+}
+
+/* === ITEMS === */
+.item { display:flex; align-items:center; margin:4px 0; }
+.box { width:60px; height:14px; margin-right:8px; border-radius:3px; }
+.line { width:60px; height:0; margin-right:8px; border-bottom-width:3px; border-bottom-style:solid; }
+</style>
+</head>
+<body>
+<div class="legend">
+<div class="legend-title">Leyenda Outron</div>
+
+<div class="columns">
+
+  <!-- ========================= -->
+  <!--         ÁREAS            -->
+  <!-- ========================= -->
+  <div class="column">
+    <div class="section-title">Áreas</div>
+
+    <div class="item"><span class="box" style="background:hsl(45, 80%, 80%);"></span> Arena</div>
+    <div class="item"><span class="box" style="background:hsl(110, 32%, 72%);"></span> Bosque</div>
+    <div class="item"><span class="box" style="background:hsl(110, 28%, 62%);"></span> Madera</div>
+    <div class="item"><span class="box" style="background:hsl(200, 20%, 95%);"></span> Glaciar</div>
+    <div class="item"><span class="box" style="background:hsla(95, 70%, 60%, 0.35);"></span> Hierba</div>
+    <div class="item"><span class="box" style="background:hsl(85, 55%, 70%);"></span> Matorral</div>
+
+    <div class="category-title">Zonas urbanas</div>
+    <div class="item"><span class="box" style="background:hsl(110, 55%, 65%);"></span> Árboles</div>
+    <div class="item"><span class="box" style="background:hsl(30, 60%, 88%);"></span> Industrial</div>
+    <div class="item"><span class="box" style="background:hsl(28, 60%, 90%);"></span> Comercial</div>
+    <div class="item"><span class="box" style="background:hsl(75, 25%, 55%);"></span> Militar</div>
+    <div class="item"><span class="box" style="background:hsl(95, 15%, 75%);"></span> Cementerio</div>
+    <div class="item"><span class="box" style="background:hsl(345, 70%, 85%);"></span> Hospital</div>
+    <div class="item"><span class="box" style="background:hsl(110, 60%, 70%);"></span> Estadio</div>
+    <div class="item"><span class="box" style="background:hsl(210, 10%, 92%);"></span> Aeropuerto</div>
+    <div class="item"><span class="box" style="background:hsla(0, 0%, 95%, 0.5);"></span> Puente</div>
+    <div class="item"><span class="box" style="background:hsl(120, 4%, 95%);"></span> Muelle</div>
+
+    <div class="category-title">Parques</div>
+    <div class="item"><span class="box" style="background:hsl(110, 32%, 78%);"></span> Parque urbano</div>
+
+    <div class="category-title">Áreas protegidas</div>
+    <div class="item"><span class="box" style="background:hsl(110, 30%, 38%);"></span> Reserva natural</div>
+  </div>
+
+  <!-- ========================= -->
+  <!--         LÍNEAS           -->
+  <!-- ========================= -->
+  <div class="column">
+    <div class="section-title">Líneas</div>
+
+    <div class="category-title">Caminos</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(30, 10%, 15%); border-bottom-style:dashed;"></span> Camino / Track</div>
+
+    <div class="category-title">Ciclovías</div>
+    <div class="item">
+  <span class="line" style="border-bottom-color:hsl(315, 68%, 64%); border-bottom-style:solid;"></span>
+  <span>Ciclovía de largo recorrido</span>
+</div>
+
+    <div class="item"><span class="line" style="border-bottom-color:hsl(315, 68%, 64%); border-bottom-style:dashed;"></span> Ciclovía local</div>
+
+    <div class="category-title">Ferrocarril</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(30, 5%, 35%);"></span> Túnel ferroviario</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(30, 5%, 60%);"></span> Tren menor</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(30, 5%, 40%);"></span> Tren principal</div>
+
+    <div class="category-title">Senderos</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(33, 9%, 50%); border-bottom-style:dashed;"></span> Sendero</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(58, 100%, 50%);"></span> Sendero amarillo</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(104, 56%, 38%);"></span> Sendero verde</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(226, 60%, 51%);"></span> Sendero azul</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(35, 33%, 41%);"></span> Sendero marrón</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(9, 0%, 18%);"></span> Sendero negro</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(290, 56%, 59%);"></span> Sendero púrpura</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(44, 85%, 49%);"></span> Sendero naranja</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(19, 85%, 50%);"></span> Sendero rojo</div>
+
+    <div class="category-title">Ferry</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(195, 65%, 65%); border-bottom-style:dashed;"></span> Ferry</div>
+
+    <div class="category-title">Ríos / Canales</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(195, 75%, 65%);"></span> Río</div>
+
+    <div class="category-title">Curvas de nivel</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(30, 55%, 40%);"></span> Curva índice</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(30, 55%, 45%);"></span> Curva</div>
+
+    <div class="category-title">Acantilados</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(25, 35%, 45%);"></span> Acantilado</div>
+
+    <div class="category-title">Aviación</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 100%);"></span> Pista</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(210, 15%, 80%);"></span> Rodaje</div>
+
+    <div class="category-title">Vías ferrata</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(10, 70%, 55%); border-bottom-style:dashed;"></span> Vía ferrata</div>
+
+    <div class="category-title">Fronteras</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 55%);"></span> Frontera</div>
+    <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 55%); border-bottom-style:dashed;"></span> Frontera disputada</div>
+
+  </div>
+</div>
+</div>
+</body>
+</html>
