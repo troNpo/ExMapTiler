@@ -143,12 +143,17 @@ option {
 
 /* CONTENEDOR DE LEYENDA */
 #legend-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
   margin-top: 20px;
   margin-bottom: 10px;
-  width: 100%;
 }
 
 #legend-container iframe {
+  flex-grow: 1;
   width: 100%;
   height: calc(100vh - 320px); /* Ajusta según lo que ocupen tus inputs/botones */
   border: none;
@@ -156,6 +161,7 @@ option {
   box-shadow: 0 0 12px rgba(0,150,255,0.3);
   background-color: #0a0a0a;
 }
+
 
 /* FOOTER */
 .footer {
