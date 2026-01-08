@@ -100,3 +100,41 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+  // ===============================
+  // LEYENDAS DINÁMICAS
+  // ===============================
+
+  const legendBtn = document.getElementById("legend-btn");
+  const legendContainer = document.getElementById("legend-container");
+
+  // Mapa entre estilos y sus leyendas
+  const legendMap = {
+    "outron.map.json": "outron.html",
+    "cyclotron.map.json": "cyclotron.html",
+    "cyclotron-dark.map.json": "cyclotron-dark.html",
+    "hikingtron.map.json": "hikingtron.html",
+    "satron.map.json": "satron.html",
+    "topo-dark.map.json": "topo-dark.html"
+    // añade más si los creas
+  };
+
+  function loadLegend(styleName) {
+    const file = legendMap[styleName];
+
+    if (!file) {
+      legendContainer.innerHTML =
+        "<div style='padding:10px; font-size:13px; color:#ccc;'>Este estilo no tiene leyenda disponible.</div>";
+      return;
+    }
+
+    legendContainer.innerHTML = `
+      <iframe src="https://tronpo.github.io/ExMapTiler/leyend/${file}"
+              style="width:100%; height:350px; border:none; border-radius:8px;">
+      </iframe>`;
+  }
+
+  legendBtn.addEventListener("click", () => {
+    const style = selector.value;
+    loadLegend(style);
+  });
+
