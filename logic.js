@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     legendContainer.innerHTML = `
       <iframe src="https://tronpo.github.io/ExMapTiler/leyend/${file}"
-              style="width:100%; height:350px; border:none; border-radius:8px;">
+              style="width:100%; height:520px; border:none; border-radius:8px;">
       </iframe>`;
   }
 
