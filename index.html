@@ -161,6 +161,24 @@ option {
   box-shadow: 0 0 12px rgba(0,150,255,0.3);
   background-color: #0a0a0a;
 }
+/* CONTENEDOR DE VISTA PREVIA */
+.preview-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;                 /* separación entre capturas */
+  max-height: 520px;         /* mismo alto que la leyenda */
+  overflow-y: auto;          /* scroll si hay varias capturas */
+  padding-right: 6px;        /* evita que el scroll tape contenido */
+}
+
+/* ESTILO DE CADA CAPTURA */
+.preview-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.35);
+  background-color: #0a0a0a;
+  display: block;
+}
 
 
 /* FOOTER */
