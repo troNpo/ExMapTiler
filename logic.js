@@ -7,38 +7,42 @@ document.addEventListener("DOMContentLoaded", () => {
   const legendBtn = document.getElementById("legend-btn");
   const legendContainer = document.getElementById("legend-container");
   const statusBox = document.getElementById("status");
+  const helpToggle = document.getElementById("help-toggle");
+  const guide = document.getElementById("guide");
 
   let legendVisible = false;
 
-  /* ========================= */
-  /*   MAPA DE LEYENDAS        */
-  /* ========================= */
-
   const legendMap = {
     "cyclotron.map.json": "cyclotron.html",
-    "outron.map.json": "outron.html",
     "cyclotron-dark.map.json": "cyclotron-dark.html",
     "hikingtron.map.json": "hikingtron.html",
     "satron.map.json": "satron.html",
-    "topo-dark.map.json": "topo-dark.html"
+    "topo-dark.map.json": "topo-dark.html",
+    "outron.map.json": "outron.html",
+    "openstreetmap.map.json": "openstreetmap.html",
+    "outdoor.map.json": "outdoor.html",
+    "streets.map.json": "streets.html",
+    "topo.map.json": "topo.html",
+    "winter.map.json": "winter.html",
+    "satellite.map.json": "satellite.html",
+    "satellite-hb.map.json": "satellite-hb.html"
   };
-
-  /* ========================= */
-  /*   MAPA DE PREVIEWS        */
-  /* ========================= */
 
   const previewMap = {
     "cyclotron.map.json": ["cyclotron1.PNG", "cyclotron2.PNG"],
-    "outron.map.json": ["outron1.PNG", "outron2.PNG"],
     "cyclotron-dark.map.json": ["cyclotron-dark1.PNG"],
     "hikingtron.map.json": ["hikingtron1.PNG"],
     "satron.map.json": ["satron1.PNG"],
-    "topo-dark.map.json": ["topo-dark1.PNG"]
+    "topo-dark.map.json": ["topo-dark1.PNG"],
+    "outron.map.json": ["outron1.PNG", "outron2.PNG"],
+    "openstreetmap.map.json": ["openstreetmap1.PNG"],
+    "outdoor.map.json": ["outdoor1.PNG"],
+    "streets.map.json": ["streets1.PNG"],
+    "topo.map.json": ["topo1.PNG"],
+    "winter.map.json": ["winter1.PNG"],
+    "satellite.map.json": ["satellite1.PNG"],
+    "satellite-hb.map.json": ["satellite-hb1.PNG"]
   };
-
-  /* ========================= */
-  /*   DESCARGA DE ESTILOS     */
-  /* ========================= */
 
   downloadBtn.addEventListener("click", async () => {
     statusBox.textContent = "";
@@ -73,10 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ========================= */
-  /*     VISTA PREVIA          */
-  /* ========================= */
-
   function loadPreview(style) {
     const imgs = previewMap[style] || [];
 
@@ -87,10 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  /* ========================= */
-  /*         LEYENDA           */
-  /* ========================= */
-
   function loadLegend(style) {
     const file = legendMap[style];
 
@@ -100,10 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
       </iframe>
     `;
   }
-
-  /* ========================= */
-  /*     BOTÓN DINÁMICO        */
-  /* ========================= */
 
   legendBtn.addEventListener("click", () => {
     const style = selector.value;
@@ -119,10 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ========================= */
-  /*     CAMBIO DE ESTILO      */
-  /* ========================= */
-
   selector.addEventListener("change", () => {
     const style = selector.value;
     loadPreview(style);
@@ -130,10 +118,11 @@ document.addEventListener("DOMContentLoaded", () => {
     legendVisible = false;
   });
 
-  /* ========================= */
-  /*     CARGA INICIAL         */
-  /* ========================= */
+  helpToggle.addEventListener("click", () => {
+    const open = guide.style.display === "block";
+    guide.style.display = open ? "none" : "block";
+    helpToggle.textContent = open ? "Ayuda ▾" : "Ayuda ▴";
+  });
 
   loadPreview("cyclotron.map.json");
-
 });
