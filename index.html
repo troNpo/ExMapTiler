@@ -141,36 +141,36 @@ option {
   background: linear-gradient(90deg, #ff1f1f, #ff3838);
 }
 
-/* CONTENEDOR DE LEYENDA */
+/* CONTENEDOR DE LEYENDA / VISTA PREVIA (PADRE) */
 #legend-container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   width: 100%;
   margin-top: 20px;
   margin-bottom: 10px;
+  height: 520px;          /* Altura fija para ambos modos */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;       /* Evita saltos y barras dobles */
 }
 
+/* LEYENDA (IFRAME) */
 #legend-container iframe {
-  flex-grow: 1;
   width: 100%;
-  height: 480px;
+  height: 100%;           /* Se adapta al contenedor */
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0,150,255,0.3);
   background-color: #0a0a0a;
 }
+
 /* CONTENEDOR DE VISTA PREVIA */
 .preview-gallery {
-  height: 520px;       
-  overflow-y: auto;     
+  height: 100%;           
+  overflow-y: auto;       
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding-right: 6px;
+  padding-right: 6px;    
 }
-
 
 /* ESTILO DE CADA CAPTURA */
 .preview-gallery img {
@@ -180,7 +180,6 @@ option {
   background-color: #0a0a0a;
   display: block;
 }
-
 
 /* FOOTER */
 .footer {
