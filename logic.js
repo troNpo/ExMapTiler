@@ -10,18 +10,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let legendVisible = false;
 
+  /* ========================= */
+  /*   MAPA DE LEYENDAS        */
+  /* ========================= */
+
   const legendMap = {
-    "outron.map.json": "outron.html",
     "cyclotron.map.json": "cyclotron.html",
+    "outron.map.json": "outron.html",
     "cyclotron-dark.map.json": "cyclotron-dark.html",
     "hikingtron.map.json": "hikingtron.html",
     "satron.map.json": "satron.html",
     "topo-dark.map.json": "topo-dark.html"
   };
 
+  /* ========================= */
+  /*   MAPA DE PREVIEWS        */
+  /* ========================= */
+
   const previewMap = {
-    "outron.map.json": ["outron1.PNG", "outron2.PNG"],
     "cyclotron.map.json": ["cyclotron1.PNG", "cyclotron2.PNG"],
+    "outron.map.json": ["outron1.PNG", "outron2.PNG"],
     "cyclotron-dark.map.json": ["cyclotron-dark1.PNG"],
     "hikingtron.map.json": ["hikingtron1.PNG"],
     "satron.map.json": ["satron1.PNG"],
@@ -29,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /* ========================= */
-  /*     DESCARGA ESTILO       */
+  /*   DESCARGA DE ESTILOS     */
   /* ========================= */
 
   downloadBtn.addEventListener("click", async () => {
@@ -66,24 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ========================= */
-  /*       AYUDA TOGGLE        */
-  /* ========================= */
-
-  const helpToggle = document.getElementById("help-toggle");
-  const guide = document.getElementById("guide");
-
-  helpToggle.addEventListener("click", () => {
-    const open = guide.style.display === "block";
-    guide.style.display = open ? "none" : "block";
-    helpToggle.textContent = open ? "Ayuda ▾" : "Ayuda ▴";
-  });
-
-  /* ========================= */
-  /*       VISTA PREVIA        */
+  /*     VISTA PREVIA          */
   /* ========================= */
 
   function loadPreview(style) {
     const imgs = previewMap[style] || [];
+
     legendContainer.innerHTML = `
       <div class="preview-gallery">
         ${imgs.map(i => `<img src="vista/${i}" loading="lazy">`).join("")}
@@ -97,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function loadLegend(style) {
     const file = legendMap[style];
+
     legendContainer.innerHTML = `
       <iframe class="legend-iframe"
               src="https://tronpo.github.io/ExMapTiler/leyend/${file}">
@@ -123,8 +120,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ========================= */
+  /*     CAMBIO DE ESTILO      */
+  /* ========================= */
+
+  selector.addEventListener("change", () => {
+    const style = selector.value;
+    loadPreview(style);
+    legendBtn.textContent = "Ver leyenda";
+    legendVisible = false;
+  });
+
+  /* ========================= */
   /*     CARGA INICIAL         */
   /* ========================= */
 
   loadPreview("cyclotron.map.json");
+
 });
