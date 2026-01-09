@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===============================
-  // CONFIGURACIÓN GENERAL
-  // ===============================
-
   const STYLE_PATH = "./style/";
   const apiKeyInput = document.getElementById("apikey");
   const selector = document.getElementById("style-selector");
@@ -13,10 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const statusBox = document.getElementById("status");
 
   let legendVisible = false;
-
-  // ===============================
-  // MAPAS DE LEYENDAS Y PREVIEWS
-  // ===============================
 
   const legendMap = {
     "outron.map.json": "outron.html",
@@ -36,134 +28,85 @@ document.addEventListener("DOMContentLoaded", () => {
     "topo-dark.map.json": ["topo-dark1.PNG"]
   };
 
-  // ===============================
-  // DESCARGA DE ESTILOS
-  // ===============================
+  /* ========================= */
+  /*     DESCARGA ESTILO       */
+  /* ========================= */
 
   downloadBtn.addEventListener("click", async () => {
-    clearStatus();
+    statusBox.textContent = "";
 
     const apiKey = apiKeyInput.value.trim();
     if (!apiKey) {
-      showStatus("Introduce tu API Key de MapTiler.", true);
-      alert("La API Key es obligatoria para descargar el estilo.");
+      statusBox.textContent = "Introduce tu API Key.";
       return;
     }
 
     const fileName = selector.value;
-    if (!fileName) {
-      showStatus("Selecciona un estilo válido.", true);
-      return;
-    }
-
     const fullPath = STYLE_PATH + fileName;
 
     try {
       const response = await fetch(fullPath);
-
-      if (!response.ok) {
-        showStatus("No se pudo cargar el estilo: " + fullPath, true);
-        alert("No se pudo cargar el estilo:\n" + fullPath);
-        return;
-      }
-
       let json = await response.text();
       json = json.replace(/{{API_KEY}}/g, apiKey);
 
-      downloadFile(json, fileName);
-      showStatus("Estilo descargado correctamente: " + fileName, false);
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
 
-    } catch (error) {
-      console.error(error);
-      showStatus("Error al procesar el archivo: " + error, true);
-      alert("Error al procesar el archivo:\n" + error);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      a.click();
+
+      URL.revokeObjectURL(url);
+      statusBox.textContent = "Estilo descargado correctamente.";
+
+    } catch (e) {
+      statusBox.textContent = "Error al descargar el estilo.";
     }
   });
 
-  function downloadFile(content, fileName) {
-    const blob = new Blob([content], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = fileName;
-    a.click();
-
-    URL.revokeObjectURL(url);
-  }
-
-  function showStatus(message, isError) {
-    statusBox.textContent = message;
-    statusBox.style.color = isError ? "#ff9b9b" : "#9bffb5";
-  }
-
-  function clearStatus() {
-    statusBox.textContent = "";
-  }
-
-  // ===============================
-  // AYUDA DESPLEGABLE
-  // ===============================
+  /* ========================= */
+  /*       AYUDA TOGGLE        */
+  /* ========================= */
 
   const helpToggle = document.getElementById("help-toggle");
-  const guideBox = document.getElementById("guide");
+  const guide = document.getElementById("guide");
 
   helpToggle.addEventListener("click", () => {
-    const isVisible = guideBox.style.display === "block";
-    guideBox.style.display = isVisible ? "none" : "block";
-    helpToggle.textContent = isVisible ? "Ayuda ▾" : "Ayuda ▴";
+    const open = guide.style.display === "block";
+    guide.style.display = open ? "none" : "block";
+    helpToggle.textContent = open ? "Ayuda ▾" : "Ayuda ▴";
   });
 
-  // ===============================
-  // VISTA PREVIA AUTOMÁTICA
-  // ===============================
+  /* ========================= */
+  /*       VISTA PREVIA        */
+  /* ========================= */
 
-  function loadPreview(styleName) {
-    const images = previewMap[styleName];
-
-    if (!images || images.length === 0) {
-      legendContainer.innerHTML =
-        "<div style='padding:10px; font-size:13px; color:#ccc;'>No hay vista previa disponible.</div>";
-      return;
-    }
-
-    const gallery = images
-      .map(img => `<img src="vista/${img}" alt="${styleName}" loading="lazy">`)
-      .join("");
-
-    legendContainer.innerHTML = `<div class="preview-gallery">${gallery}</div>`;
-  }
-
-  selector.addEventListener("change", () => {
-    const style = selector.value;
-    loadPreview(style);
-
-    legendVisible = false;
-    legendBtn.textContent = "Ver leyenda";
-  });
-
-  // ===============================
-  // LEYENDA DINÁMICA
-  // ===============================
-
-  function loadLegend(styleName) {
-    const file = legendMap[styleName];
-
-    if (!file) {
-      legendContainer.innerHTML =
-        "<div style='padding:10px; font-size:13px; color:#ccc;'>Este estilo no tiene leyenda disponible.</div>";
-      return;
-    }
-
+  function loadPreview(style) {
+    const imgs = previewMap[style] || [];
     legendContainer.innerHTML = `
-      <iframe src="https://tronpo.github.io/ExMapTiler/leyend/${file}"
-              class="legend-iframe"></iframe>
+      <div class="preview-gallery">
+        ${imgs.map(i => `<img src="vista/${i}" loading="lazy">`).join("")}
+      </div>
     `;
   }
 
-  // ===============================
-  // BOTÓN DINÁMICO
-  // ===============================
+  /* ========================= */
+  /*         LEYENDA           */
+  /* ========================= */
+
+  function loadLegend(style) {
+    const file = legendMap[style];
+    legendContainer.innerHTML = `
+      <iframe class="legend-iframe"
+              src="https://tronpo.github.io/ExMapTiler/leyend/${file}">
+      </iframe>
+    `;
+  }
+
+  /* ========================= */
+  /*     BOTÓN DINÁMICO        */
+  /* ========================= */
 
   legendBtn.addEventListener("click", () => {
     const style = selector.value;
@@ -179,13 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ===============================
-  // CARGA INICIAL
-  // ===============================
+  /* ========================= */
+  /*     CARGA INICIAL         */
+  /* ========================= */
 
-  selector.value = "cyclotron.map.json";
   loadPreview("cyclotron.map.json");
-  legendBtn.textContent = "Ver leyenda";
-  legendVisible = false;
-
 });
