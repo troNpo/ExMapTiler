@@ -1,236 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Estilos vectoriales MapTiler</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estilos vectoriales MapTiler</title>
 
-  <style>
-    body {
-      background-color: #0a0a0a;
-      color: #f5f5f5;
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+<style>
+/* ========================= */
+/*   ESTRUCTURA PRINCIPAL    */
+/* ========================= */
 
-    .panel {
-      background: radial-gradient(circle at top, #2a0000 0, #120101 45%, #050505 100%);
-      padding: 18px;
-      border-radius: 14px;
-      width: 95%;
-      max-width: 460px;
-      box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
-      border: 1px solid rgba(255, 60, 60, 0.8);
+body {
+  background:#0a0a0a;
+  color:white;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin:0;
+  padding:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
 
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      min-height: 0;
-    }
+/* ========================= */
+/*          PANEL            */
+/* ========================= */
 
-    h2 {
-      margin: 0 0 8px 0;
-      text-align: center;
-      font-size: 22px;
-      letter-spacing: 0.04em;
-      color: #ff4c4c;
-      text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-    }
+.panel {
+  width:95%;
+  max-width:460px;
+  background:radial-gradient(circle at top, #2a0000 0, #120101 45%, #050505 100%);
+  border-radius:14px;
+  padding:18px;
+  border:1px solid rgba(255,60,60,0.8);
+  box-shadow:0 0 25px rgba(255,0,0,0.35);
 
-    .subtitle {
-      text-align: center;
-      font-size: 12px;
-      color: #bbbbbb;
-      margin-bottom: 8px;
-    }
+  display:flex;
+  flex-direction:column;
 
-    .help-toggle {
-      margin-top: 4px;
-      font-size: 13px;
-      color: #ff4c4c;
-      cursor: pointer;
-      text-align: right;
-      user-select: none;
-    }
+  /* 🔥 Límite vertical real */
+  max-height:90vh;
+  overflow:hidden;
+}
 
-    .help-toggle:hover {
-      color: #ff6b6b;
-    }
+h2 {
+  margin:0 0 8px 0;
+  text-align:center;
+  color:#ff4c4c;
+  text-shadow:0 0 8px rgba(255,0,0,0.6);
+}
 
-    .guide {
-      margin-top: 8px;
-      margin-bottom: 14px;
-      padding: 10px;
-      background-color: #1a0b0b;
-      border-left: 3px solid #ff2e2e;
-      border-radius: 6px;
-      font-size: 12px;
-      color: #e6e6e6;
-      line-height: 1.45;
-      display: none;
-    }
+.subtitle {
+  text-align:center;
+  font-size:12px;
+  color:#bbb;
+  margin-bottom:8px;
+}
 
-    label {
-      display: block;
-      margin-top: 12px;
-      font-size: 14px;
-      color: #dddddd;
-    }
+/* ========================= */
+/*          AYUDA            */
+/* ========================= */
 
-    input,
-    select {
-      width: 100%;
-      padding: 9px 10px;
-      margin-top: 6px;
-      border-radius: 8px;
-      border: 1px solid #3a3a3a;
-      background-color: #1b1b1b;
-      color: #ffffff;
-      font-size: 14px;
-      box-sizing: border-box;
-      outline: none;
-    }
+.help-toggle {
+  text-align:right;
+  font-size:13px;
+  color:#ff4c4c;
+  cursor:pointer;
+  margin-bottom:6px;
+}
 
-    input:focus,
-    select:focus {
-      border-color: #ff3b3b;
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-    }
+.guide {
+  display:none;
+  background:#1a0b0b;
+  border-left:3px solid #ff2e2e;
+  padding:10px;
+  border-radius:6px;
+  font-size:12px;
+  margin-bottom:12px;
+}
 
-    select optgroup {
-      color: #ff9b9b;
-      font-weight: bold;
-      background-color: #1b1b1b;
-    }
+/* ========================= */
+/*     INPUTS Y SELECTS      */
+/* ========================= */
 
-    option {
-      background-color: #1b1b1b;
-      color: #ffffff;
-    }
+label {
+  margin-top:12px;
+  font-size:14px;
+}
 
-    .btn {
-      width: 100%;
-      margin-top: 14px;
-      padding: 12px;
-      background: linear-gradient(90deg, #ff2b2b, #ff4848);
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
-    }
+input, select {
+  width:100%;
+  padding:9px 10px;
+  margin-top:6px;
+  border-radius:8px;
+  border:1px solid #3a3a3a;
+  background:#1b1b1b;
+  color:white;
+  font-size:14px;
+}
 
-    .btn:active {
-      transform: scale(0.97);
-      box-shadow: 0 0 6px rgba(255, 0, 0, 0.8);
-    }
+/* ========================= */
+/*         BOTONES           */
+/* ========================= */
 
-    #legend-btn {
-      margin-top: 12px;
-      background: linear-gradient(90deg, #0099ff, #00ccff);
-      box-shadow: 0 0 12px rgba(0,150,255,0.6);
-    }
+.btn {
+  width:100%;
+  padding:12px;
+  margin-top:14px;
+  border:none;
+  border-radius:8px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  color:white;
+}
 
-    #legend-container {
-      width: 100%;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      flex-grow: 1;
-      min-height: 420px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
+#download-btn {
+  background:linear-gradient(90deg, #ff2b2b, #ff4848);
+  box-shadow:0 0 12px rgba(255,0,0,0.6);
+}
 
-    .legend-iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0,150,255,0.3);
-      background-color: #0a0a0a;
-    }
+#legend-btn {
+  background:linear-gradient(90deg, #0099ff, #00ccff);
+  box-shadow:0 0 12px rgba(0,150,255,0.6);
+}
 
-    .preview-gallery {
-      flex: 1;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      padding-right: 6px;
-      padding-bottom: 20px;
-    }
+/* ========================= */
+/*   CONTENEDOR PRINCIPAL    */
+/* ========================= */
 
-    .preview-gallery img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0, 150, 255, 0.35);
-      background-color: #0a0a0a;
-      display: block;
-    }
+#legend-container {
+  flex-grow:1;
+  margin-top:16px;
 
-    .footer {
-      margin-top: auto;
-      padding-bottom: 8px;
-      text-align: center;
-      font-size: 11px;
-      color: #777;
-      opacity: 0.7;
-    }
-  </style>
+  /* 🔥 Altura controlada dentro del panel */
+  min-height:350px;
+  overflow:hidden;
+  display:flex;
+}
+
+/* ========================= */
+/*       VISTA PREVIA        */
+/* ========================= */
+
+.preview-gallery {
+  flex:1;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding-right:6px;
+}
+
+.preview-gallery img {
+  width:100%;
+  border-radius:10px;
+  box-shadow:0 0 12px rgba(0,150,255,0.35);
+}
+
+/* ========================= */
+/*          LEYENDA          */
+/* ========================= */
+
+.legend-iframe {
+  width:100%;
+  height:100%;
+  border:none;
+  border-radius:8px;
+  background:#0a0a0a;
+  box-shadow:0 0 12px rgba(0,150,255,0.3);
+}
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
+
+.footer {
+  text-align:center;
+  font-size:11px;
+  color:#777;
+  margin-top:10px;
+}
+</style>
 </head>
 
 <body>
-  <div class="panel">
-    <h2>Estilos vectoriales MapTiler</h2>
-    <div class="subtitle">Descarga lista para OruxMaps(premium)</div>
 
-    <div class="help-toggle" id="help-toggle">Ayuda ▾</div>
-    <div class="guide" id="guide">
-      <strong>Guía rápida</strong><br>
-      1. Introduce tu API Key de MapTiler<br>
-      2. Selecciona un estilo<br>
-      3. Pulsa “Descargar estilo”<br>
-      4. Guarda el archivo en OruxMaps/mapfiles<br><br>
-      <strong>¿Cómo conseguir tu API Key?</strong><br>
-      • Crea una cuenta gratuita en MapTiler Cloud<br>
-      • Entra en tu panel → “API Keys” → copia tu clave<br>
-    </div>
+<div class="panel">
 
-    <label for="apikey">API Key de MapTiler</label>
-    <input type="text" id="apikey" placeholder="Introduce tu API Key (obligatoria)" autocomplete="off">
+  <h2>Estilos vectoriales MapTiler</h2>
+  <div class="subtitle">Descarga lista para OruxMaps(premium)</div>
 
-    <label for="style-selector">Selecciona un estilo</label>
-    <select id="style-selector">
-      <optgroup label="Custom">
-        <option value="cyclotron.map.json" selected>Cyclotron</option>
-        <option value="cyclotron-dark.map.json">Cyclotron-Dark</option>
-        <option value="hikingtron.map.json">Hikingtron</option>
-        <option value="satron.map.json">Satron</option>
-        <option value="topo-dark.map.json">Topo-Dark</option>
-        <option value="outron.map.json">Outron</option>
-      </optgroup>
-    </select>
-
-    <button id="download-btn" class="btn">Descargar estilo</button>
-    <button id="legend-btn" class="btn">Ver leyenda</button>
-
-    <div id="legend-container"></div>
-    <div id="status" style="margin-top:10px; font-size:13px; min-height:18px;"></div>
+  <div class="help-toggle" id="help-toggle">Ayuda ▾</div>
+  <div class="guide" id="guide">
+    <strong>Guía rápida</strong><br>
+    1. Introduce tu API Key<br>
+    2. Selecciona un estilo<br>
+    3. Pulsa “Descargar estilo”
   </div>
 
-  <div class="footer">
-    Map data © OpenStreetMap contributors · Tiles © MapTiler
-  </div>
+  <label>API Key de MapTiler</label>
+  <input id="apikey" placeholder="Introduce tu API Key">
 
-  <script src="logic.js"></script>
+  <label>Selecciona un estilo</label>
+  <select id="style-selector">
+    <option value="cyclotron.map.json" selected>Cyclotron</option>
+    <option value="outron.map.json">Outron</option>
+    <option value="cyclotron-dark.map.json">Cyclotron-Dark</option>
+    <option value="hikingtron.map.json">Hikingtron</option>
+    <option value="satron.map.json">Satron</option>
+    <option value="topo-dark.map.json">Topo-Dark</option>
+  </select>
+
+  <button id="download-btn" class="btn">Descargar estilo</button>
+  <button id="legend-btn" class="btn">Ver leyenda</button>
+
+  <div id="legend-container"></div>
+
+  <div id="status" style="font-size:13px; margin-top:6px;"></div>
+
+</div>
+
+<div class="footer">tronpo.github.io</div>
+
+<script src="logic.js"></script>
+
 </body>
 </html>
