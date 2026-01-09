@@ -5,7 +5,8 @@
   <title>Descargar Estilo MapTiler</title>
 
   <style>
- body {
+ 
+  body {
   background-color: #0a0a0a;
   color: #f5f5f5;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -25,7 +26,7 @@
   width: 95%;
   max-width: 460px;
 
-  /* 🔥 Dejamos que crezca según contenido, sin aplastar la leyenda */
+  /* 🔥 Dejamos que crezca según contenido */
   height: auto;
   max-height: none;
 
@@ -151,7 +152,7 @@ option {
   margin-top: 20px;
   margin-bottom: 10px;
 
-  /* 🔥 Altura real y estable para leyenda y vista previa */
+  /* 🔥 Altura real y estable */
   height: 60vh;
   min-height: 420px;
 
@@ -169,6 +170,10 @@ option {
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0,150,255,0.3);
   background-color: #0a0a0a;
+
+  /* 🔥 Relleno visual */
+  padding-bottom: 40px;
+  scroll-padding-bottom: 40px;
 }
 
 /* VISTA PREVIA */
@@ -177,8 +182,15 @@ option {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+
+  /* 🔥 Más separación entre imágenes */
+  gap: 20px;
+
   padding-right: 6px;
+
+  /* 🔥 Relleno inferior */
+  padding-bottom: 40px;
+  scroll-padding-bottom: 40px;
 }
 
 .preview-gallery img {
@@ -187,6 +199,9 @@ option {
   box-shadow: 0 0 12px rgba(0, 150, 255, 0.35);
   background-color: #0a0a0a;
   display: block;
+
+  /* 🔥 Presencia visual */
+  min-height: 240px;
 }
 
 /* FOOTER */
@@ -199,11 +214,6 @@ option {
   opacity: 0.7;
 }
 
-
-    
-
-
-   
   </style>
 </head>
 
