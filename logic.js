@@ -1,18 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ===============================
-  // CONFIGURACIÓN DE RUTA ÚNICA
+  // CONFIGURACIÓN GENERAL
   // ===============================
 
   const STYLE_PATH = "./style/";
-
   const apiKeyInput = document.getElementById("apikey");
   const selector = document.getElementById("style-selector");
   const downloadBtn = document.getElementById("download-btn");
+  const legendBtn = document.getElementById("legend-btn");
+  const legendContainer = document.getElementById("legend-container");
   const statusBox = document.getElementById("status");
 
+  let legendVisible = false; // Estado del botón dinámico
+
   // ===============================
-  // FUNCIÓN PRINCIPAL DE DESCARGA
+  // MAPAS DE LEYENDAS Y CAPTURAS
+  // ===============================
+
+  const legendMap = {
+    "outron.map.json": "outron.html",
+    "cyclotron.map.json": "cyclotron.html",
+    "cyclotron-dark.map.json": "cyclotron-dark.html",
+    "hikingtron.map.json": "hikingtron.html",
+    "satron.map.json": "satron.html",
+    "topo-dark.map.json": "topo-dark.html"
+  };
+
+  const previewMap = {
+    "outron.map.json": ["outron1.PNG", "outron2.PNG"],
+    "cyclotron.map.json": ["cyclotron1.PNG", "cyclotron2.PNG"],
+    "cyclotron-dark.map.json": ["cyclotron-dark1.PNG"],
+    "hikingtron.map.json": ["hikingtron1.PNG"],
+    "satron.map.json": ["satron1.PNG"],
+    "topo-dark.map.json": ["topo-dark1.PNG"]
+  };
+
+  // ===============================
+  // DESCARGA DE ESTILOS
   // ===============================
 
   downloadBtn.addEventListener("click", async () => {
@@ -43,8 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       let json = await response.text();
-
-      // Sustituir marcador {{API_KEY}} por la clave real
       json = json.replace(/{{API_KEY}}/g, apiKey);
 
       downloadFile(json, fileName);
@@ -57,10 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ===============================
-  // FUNCIÓN PARA DESCARGAR ARCHIVOS
-  // ===============================
-
   function downloadFile(content, fileName) {
     const blob = new Blob([content], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -72,10 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     URL.revokeObjectURL(url);
   }
-
-  // ===============================
-  // FUNCIONES DE ESTADO VISUAL
-  // ===============================
 
   function showStatus(message, isError) {
     statusBox.textContent = message;
@@ -100,20 +115,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===============================
-  // LEYENDAS DINÁMICAS
+  // VISTA PREVIA AUTOMÁTICA
   // ===============================
 
-  const legendBtn = document.getElementById("legend-btn");
-  const legendContainer = document.getElementById("legend-container");
+  function loadPreview(styleName) {
+    const images = previewMap[styleName];
 
-  const legendMap = {
-    "outron.map.json": "outron.html",
-    "cyclotron.map.json": "cyclotron.html",
-    "cyclotron-dark.map.json": "cyclotron-dark.html",
-    "hikingtron.map.json": "hikingtron.html",
-    "satron.map.json": "satron.html",
-    "topo-dark.map.json": "topo-dark.html"
-  };
+    if (!images || images.length === 0) {
+      legendContainer.innerHTML =
+        "<div style='padding:10px; font-size:13px; color:#ccc;'>No hay vista previa disponible.</div>";
+      return;
+    }
+
+    const gallery = images.map(img =>
+      `<img src="vista/${img}" alt="${styleName}" loading="lazy">`
+    ).join("");
+
+    legendContainer.innerHTML = `<div class="preview-gallery">${gallery}</div>`;
+  }
+
+  selector.addEventListener("change", () => {
+    const style = selector.value;
+    loadPreview(style);
+
+    // Reset del botón dinámico
+    legendVisible = false;
+    legendBtn.textContent = "Ver leyenda";
+  });
+
+  // ===============================
+  // LEYENDA DINÁMICA
+  // ===============================
 
   function loadLegend(styleName) {
     const file = legendMap[styleName];
@@ -126,15 +158,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     legendContainer.innerHTML = `
       <iframe src="https://tronpo.github.io/ExMapTiler/leyend/${file}"
-              style="width:100%; height: calc(100vh - 340px);
- border:none; border-radius:8px;">
-      </iframe>`;
+              style="width:100%; height:520px; border:none; border-radius:8px;"></iframe>
+    `;
   }
+
+  // ===============================
+  // BOTÓN DINÁMICO: VER / CERRAR LEYENDA
+  // ===============================
 
   legendBtn.addEventListener("click", () => {
     const style = selector.value;
-    loadLegend(style);
+
+    if (!legendVisible) {
+      loadLegend(style);
+      legendBtn.textContent = "Cerrar leyenda";
+      legendVisible = true;
+    } else {
+      loadPreview(style);
+      legendBtn.textContent = "Ver leyenda";
+      legendVisible = false;
+    }
   });
 
-}); 
+  // ===============================
+  // CARGA INICIAL (Cyclotron por defecto)
+  // ===============================
 
+  selector.value = "cyclotron.map.json";
+  loadPreview("cyclotron.map.json");
+  legendBtn.textContent = "Ver leyenda";
+  legendVisible = false;
+
+});
