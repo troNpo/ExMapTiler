@@ -1,229 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Estilos vectoriales MapTiler</title>
+  <meta charset="UTF-8">
+  <title>MapTiler · Estilos vectoriales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-/* ========================= */
-/*   ESTRUCTURA PRINCIPAL    */
-/* ========================= */
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0a0a0a;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      justify-content: center;
+    }
 
-body {
-  background:#0a0a0a;
-  color:white;
-  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  margin:0;
-  padding:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-}
+    .panel {
+      width: 95%;
+      max-width: 460px;
+      margin: 20px 0;
+      padding: 18px;
+      border-radius: 14px;
+      background: radial-gradient(circle at top, #2a0000 0, #120101 45%, #050505 100%);
+      border: 1px solid rgba(255, 60, 60, 0.8);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+    }
 
-/* ========================= */
-/*          PANEL            */
-/* ========================= */
+    h2 {
+      margin: 0 0 6px 0;
+      text-align: center;
+      font-size: 20px;
+      color: #ff4c4c;
+    }
 
-.panel {
-  width:95%;
-  max-width:460px;
-  background:radial-gradient(circle at top, #2a0000 0, #120101 45%, #050505 100%);
-  border-radius:14px;
-  padding:18px;
-  border:1px solid rgba(255,60,60,0.8);
-  box-shadow:0 0 25px rgba(255,0,0,0.35);
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+      color: #bbb;
+      margin-bottom: 10px;
+    }
 
-  display:flex;
-  flex-direction:column;
+    label {
+      font-size: 14px;
+      margin-top: 12px;
+    }
 
-  /* 🔥 Límite vertical real */
-  max-height:90vh;
-  overflow:hidden;
-}
+    input, select {
+      width: 100%;
+      padding: 9px 10px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: 1px solid #3a3a3a;
+      background: #1b1b1b;
+      color: #fff;
+      font-size: 14px;
+    }
 
-h2 {
-  margin:0 0 8px 0;
-  text-align:center;
-  color:#ff4c4c;
-  text-shadow:0 0 8px rgba(255,0,0,0.6);
-}
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      color: white;
+    }
 
-.subtitle {
-  text-align:center;
-  font-size:12px;
-  color:#bbb;
-  margin-bottom:8px;
-}
+    #download-btn {
+      background: linear-gradient(90deg, #ff2b2b, #ff4848);
+    }
 
-/* ========================= */
-/*          AYUDA            */
-/* ========================= */
+    #legend-btn {
+      background: linear-gradient(90deg, #0099ff, #00ccff);
+    }
 
-.help-toggle {
-  text-align:right;
-  font-size:13px;
-  color:#ff4c4c;
-  cursor:pointer;
-  margin-bottom:6px;
-}
+    #legend-container {
+      margin-top: 16px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
 
-.guide {
-  display:none;
-  background:#1a0b0b;
-  border-left:3px solid #ff2e2e;
-  padding:10px;
-  border-radius:6px;
-  font-size:12px;
-  margin-bottom:12px;
-}
+    .preview-gallery {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-right: 6px;
+    }
 
-/* ========================= */
-/*     INPUTS Y SELECTS      */
-/* ========================= */
+    .preview-gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 150, 255, 0.35);
+    }
 
-label {
-  margin-top:12px;
-  font-size:14px;
-}
+    .legend-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+      background: #0a0a0a;
+    }
 
-input, select {
-  width:100%;
-  padding:9px 10px;
-  margin-top:6px;
-  border-radius:8px;
-  border:1px solid #3a3a3a;
-  background:#1b1b1b;
-  color:white;
-  font-size:14px;
-}
-
-/* ========================= */
-/*         BOTONES           */
-/* ========================= */
-
-.btn {
-  width:100%;
-  padding:12px;
-  margin-top:14px;
-  border:none;
-  border-radius:8px;
-  font-size:15px;
-  font-weight:600;
-  cursor:pointer;
-  color:white;
-}
-
-#download-btn {
-  background:linear-gradient(90deg, #ff2b2b, #ff4848);
-  box-shadow:0 0 12px rgba(255,0,0,0.6);
-}
-
-#legend-btn {
-  background:linear-gradient(90deg, #0099ff, #00ccff);
-  box-shadow:0 0 12px rgba(0,150,255,0.6);
-}
-
-/* ========================= */
-/*   CONTENEDOR PRINCIPAL    */
-/* ========================= */
-
-#legend-container {
-  flex-grow:1;
-  margin-top:16px;
-
-  /* 🔥 Altura controlada dentro del panel */
-  min-height:350px;
-  overflow:hidden;
-  display:flex;
-}
-
-/* ========================= */
-/*       VISTA PREVIA        */
-/* ========================= */
-
-.preview-gallery {
-  flex:1;
-  overflow-y:auto;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  padding-right:6px;
-}
-
-.preview-gallery img {
-  width:100%;
-  border-radius:10px;
-  box-shadow:0 0 12px rgba(0,150,255,0.35);
-}
-
-/* ========================= */
-/*          LEYENDA          */
-/* ========================= */
-
-.legend-iframe {
-  width:100%;
-  height:100%;
-  border:none;
-  border-radius:8px;
-  background:#0a0a0a;
-  box-shadow:0 0 12px rgba(0,150,255,0.3);
-}
-
-/* ========================= */
-/*          FOOTER           */
-/* ========================= */
-
-.footer {
-  text-align:center;
-  font-size:11px;
-  color:#777;
-  margin-top:10px;
-}
-</style>
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      color: #777;
+      margin-top: 12px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="panel">
+    <h2>Estilos vectoriales MapTiler</h2>
+    <div class="subtitle">Descarga lista para OruxMaps (premium)</div>
 
-<div class="panel">
+    <label>API Key de MapTiler</label>
+    <input id="apikey" placeholder="Introduce tu API Key">
 
-  <h2>Estilos vectoriales MapTiler</h2>
-  <div class="subtitle">Descarga lista para OruxMaps(premium)</div>
+    <label>Selecciona un estilo</label>
+    <select id="style-selector">
+      <option value="cyclotron.map.json" selected>Cyclotron</option>
+      <option value="outron.map.json">Outron</option>
+      <option value="cyclotron-dark.map.json">Cyclotron-Dark</option>
+      <option value="hikingtron.map.json">Hikingtron</option>
+      <option value="satron.map.json">Satron</option>
+      <option value="topo-dark.map.json">Topo-Dark</option>
+    </select>
 
-  <div class="help-toggle" id="help-toggle">Ayuda ▾</div>
-  <div class="guide" id="guide">
-    <strong>Guía rápida</strong><br>
-    1. Introduce tu API Key<br>
-    2. Selecciona un estilo<br>
-    3. Pulsa “Descargar estilo”
+    <button id="download-btn" class="btn">Descargar estilo</button>
+    <button id="legend-btn" class="btn">Ver leyenda</button>
+
+    <div id="legend-container"></div>
+    <div id="status" style="font-size:13px; margin-top:6px;"></div>
   </div>
 
-  <label>API Key de MapTiler</label>
-  <input id="apikey" placeholder="Introduce tu API Key">
+  <div class="footer">tronpo.github.io</div>
 
-  <label>Selecciona un estilo</label>
-  <select id="style-selector">
-    <option value="cyclotron.map.json" selected>Cyclotron</option>
-    <option value="outron.map.json">Outron</option>
-    <option value="cyclotron-dark.map.json">Cyclotron-Dark</option>
-    <option value="hikingtron.map.json">Hikingtron</option>
-    <option value="satron.map.json">Satron</option>
-    <option value="topo-dark.map.json">Topo-Dark</option>
-  </select>
-
-  <button id="download-btn" class="btn">Descargar estilo</button>
-  <button id="legend-btn" class="btn">Ver leyenda</button>
-
-  <div id="legend-container"></div>
-
-  <div id="status" style="font-size:13px; margin-top:6px;"></div>
-
-</div>
-
-<div class="footer">tronpo.github.io</div>
-
-<script src="logic.js"></script>
-
+  <script src="logic.js"></script>
 </body>
 </html>
