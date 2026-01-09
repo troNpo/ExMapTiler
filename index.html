@@ -142,27 +142,30 @@
     }
 
     /* CONTENEDOR DE LEYENDA / VISTA PREVIA */
-    #legend-container {
-      width: 100%;
-      margin-top: 20px;
-      margin-bottom: 10px;
+  /* CONTENEDOR DE LEYENDA */
+#legend-container {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
 
-      flex-grow: 1;             /* 🔧 Se adapta al panel */
-      min-height: 420px;        /* 🔧 Altura mínima coherente */
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
+  flex-grow: 1;             /* Se adapta al panel */
+  min-height: 420px;        /* Altura mínima coherente */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
-    /* LEYENDA (IFRAME) */
-    #legend-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0,150,255,0.3);
-      background-color: #0a0a0a;
-    }
+/* IFRAME DE LEYENDA */
+#legend-container iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;        /* 🔧 Evita que se quede corto */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,150,255,0.3);
+  background-color: #0a0a0a;
+}
+
 
     /* VISTA PREVIA */
     .preview-gallery {
