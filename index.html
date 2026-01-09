@@ -1,60 +1,50 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Estilos vectoriales MapTiler</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<div class="help-toggle" id="help-toggle">Ayuda ▾</div>
 
-<div class="panel">
-  <h2>Estilos vectoriales MapTiler</h2>
-  <div class="subtitle">Descarga lista para OruxMaps(premium)</div>
+<div class="guide" id="guide" style="display:none;">
+  <strong>Guía rápida</strong><br>
+  1. Introduce tu API Key de MapTiler<br>
+  2. Selecciona un estilo<br>
+  3. Pulsa “Descargar estilo”<br>
+  4. Guarda el archivo en OruxMaps/mapfiles<br><br>
 
-  <div class="help-toggle" id="help-toggle">Ayuda ▾</div>
-  <div class="guide" id="guide">
-    <strong>Guía rápida</strong><br>
-    1. Introduce tu API Key<br>
-    2. Selecciona un estilo<br>
-    3. Pulsa “Descargar estilo”
-  </div>
-
-  <label>API Key de MapTiler</label>
-  <input id="apikey" placeholder="Introduce tu API Key">
-
-  <label>Selecciona un estilo</label>
-  <select id="style-selector">
-    <optgroup label="Tech / Neon">
-      <option value="cyclotron.map.json" selected>Cyclotron</option>
-      <option value="cyclotron-dark.map.json">Cyclotron-Dark</option>
-      <option value="hikingtron.map.json">Hikingtron</option>
-      <option value="satron.map.json">Satron</option>
-      <option value="topo-dark.map.json">Topo-Dark</option>
-      <option value="outron.map.json">Outron</option>
-    </optgroup>
-    <optgroup label="Classic / Outdoor">
-      <option value="openstreetmap.map.json">OpenStreetMap</option>
-      <option value="outdoor.map.json">Outdoor</option>
-      <option value="streets.map.json">Streets</option>
-      <option value="topo.map.json">Topo</option>
-      <option value="winter.map.json">Winter</option>
-    </optgroup>
-    <optgroup label="Satélite">
-      <option value="satellite.map.json">Satellite</option>
-      <option value="satellite-hb.map.json">Satellite HB</option>
-    </optgroup>
-  </select>
-
-  <button id="download-btn" class="btn">Descargar estilo</button>
-  <button id="legend-btn" class="btn">Ver leyenda</button>
-
-  <div id="legend-container"></div>
-  <div id="status" style="font-size:13px; margin-top:6px;"></div>
+  <strong>¿Cómo conseguir tu API Key?</strong><br>
+  • Crea una cuenta gratuita en MapTiler Cloud<br>
+  • Entra en tu panel → “API Keys” → copia tu clave<br>
 </div>
 
-<div class="footer">tronpo.github.io</div>
+<label for="apikey">API Key de MapTiler</label>
+<input type="text" id="apikey" placeholder="Introduce tu API Key (obligatoria)" autocomplete="off">
 
-<script src="logic.js"></script>
-</body>
-</html>
+<label for="style-selector">Selecciona un estilo</label>
+<select id="style-selector">
+  <optgroup label="Classic">
+    <option value="outdoor.map.json">Outdoor</option>
+    <option value="openstreetmap.map.json">OpenStreetMap</option>
+    <option value="streets.map.json">Streets</option>
+    <option value="satellite.map.json">Satellite</option>
+    <option value="topo.map.json">Topo</option>
+    <option value="winter.map.json">Winter</option>
+  </optgroup>
+
+  <optgroup label="Custom">
+    <option value="cyclotron.map.json" selected>Cyclotron</option>
+    <option value="cyclotron-dark.map.json">Cyclotron-Dark</option>
+    <option value="hikingtron.map.json">Hikingtron</option>
+    <option value="satellite-hb.map.json">Satellite-HB</option>
+    <option value="satron.map.json">Satron</option>
+    <option value="topo-dark.map.json">Topo-Dark</option>
+    <option value="outron.map.json">Outron</option>
+  </optgroup>
+</select>
+
+<button id="download-btn" class="btn">Descargar estilo</button>
+
+<button id="legend-btn" class="btn" 
+  style="margin-top:12px; background:linear-gradient(90deg,#0099ff,#00ccff); 
+         box-shadow:0 0 12px rgba(0,150,255,0.6);">
+  Ver leyenda
+</button>
+
+<div id="legend-container"></div>
+
+<div id="status" style="margin-top:10px; font-size:13px; min-height:18px;"></div>
