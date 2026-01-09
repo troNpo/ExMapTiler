@@ -3,30 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <style>
-body { background:#121212; color:white; font-family:sans-serif; padding:20px; }
-.legend { background:#1e1e1e; padding:20px; border-radius:8px; border:1px solid #333; max-width:1100px; margin:auto; }
+body {
+  background:#121212;
+  color:white;
+  font-family:sans-serif;
+  padding:20px;
+  margin:0;
+  box-sizing:border-box;
+}
 
-.legend-title { font-size:24px; font-weight:bold; color:#00eaff; margin-bottom:20px; }
+/* CONTENEDOR PRINCIPAL */
+.legend {
+  background:#1e1e1e;
+  padding:20px;
+  border-radius:8px;
+  border:1px solid #333;
+  width:100%;
+  max-width:100%;
+  margin:auto;
+  box-sizing:border-box;
+}
 
-/* === DOS COLUMNAS === */
+/* TÍTULO */
+.legend-title {
+  font-size:24px;
+  font-weight:bold;
+  color:#00eaff;
+  margin-bottom:20px;
+  text-align:left;
+}
+
+/* CONTENEDOR DE COLUMNAS */
 .columns {
   display:flex;
-  gap:40px;
   flex-wrap:wrap;
+  gap:20px;
+  width:100%;
+  box-sizing:border-box;
 }
 
+/* COLUMNA */
 .column {
   flex:1;
-  min-width:300px;
+  min-width:260px;
+  max-width:100%;
+  box-sizing:border-box;
 }
 
-/* === ENCABEZADOS === */
+/* ENCABEZADOS */
 .section-title {
   font-size:20px;
   font-weight:bold;
   margin-top:10px;
   padding-bottom:6px;
   border-bottom:1px solid #444;
+  width:100%;
+  box-sizing:border-box;
 }
 
 .category-title {
@@ -36,78 +68,100 @@ body { background:#121212; color:white; font-family:sans-serif; padding:20px; }
   color:#ccc;
 }
 
-/* === ITEMS === */
-.item { display:flex; align-items:center; margin:4px 0; }
-.box { width:60px; height:14px; margin-right:8px; border-radius:3px; }
-.line { width:60px; height:0; margin-right:8px; border-bottom-width:3px; border-bottom-style:solid; }
+/* ITEMS */
+.item {
+  display:flex;
+  align-items:center;
+  margin:4px 0;
+  font-size:14px;
+}
+
+.box {
+  width:60px;
+  height:14px;
+  margin-right:8px;
+  border-radius:3px;
+}
+
+.line {
+  width:60px;
+  height:0;
+  margin-right:8px;
+  border-bottom-width:3px;
+  border-bottom-style:solid;
+}
 </style>
 </head>
+
 <body>
+
 <div class="legend">
-<div class="legend-title">Leyenda Cyclotron</div>
 
-<div class="columns">
+  <div class="legend-title">Leyenda Cyclotron</div>
 
-  <!-- ========================= -->
-  <!--         ÁREAS            -->
-  <!-- ========================= -->
-  <div class="column">
-    <div class="section-title">Áreas</div>
+  <div class="columns">
 
-    <div class="item"><span class="box" style="background:hsl(51, 34%, 85%);"></span> Agricultura</div>
-    <div class="item"><span class="box" style="background:hsl(199, 44%, 59%);"></span> Agua</div>
-    <div class="item"><span class="box" style="background:hsl(54, 86%, 83%);"></span> Arena</div>
-    <div class="item"><span class="box" style="background:hsl(74, 31%, 70%);"></span> Bosque</div>
-    <div class="item"><span class="box" style="background:hsl(79, 35%, 81%);"></span> Hierba</div>
-    <div class="item"><span class="box" style="background:hsl(75, 37%, 75%);"></span> Matorral</div>
-    <div class="item"><span class="box" style="background:hsl(37, 11%, 77%);"></span> Edificios</div>
-    <div class="item"><span class="box" style="background:hsl(0,0%,100%);"></span> Glaciar</div>
+    <!-- ========================= -->
+    <!--         ÁREAS            -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Áreas</div>
 
-    <div class="category-title">Zonas urbanas</div>
-    <div class="item"><span class="box" style="background:hsl(45,14%,71%);"></span> Residencial</div>
-    <div class="item"><span class="box" style="background:hsl(60, 0%, 96%);"></span> Peatonal</div>
-    <div class="item"><span class="box" style="background:hsl(325, 26%, 91%);"></span> Hospital</div>
-    <div class="item"><span class="box" style="background:hsl(90, 49%, 70%);"></span> Estadio</div>
-    <div class="item"><span class="box" style="background:hsla(42, 49%, 93%, 0.6);"></span> Puente</div>
+      <div class="item"><span class="box" style="background:hsl(51, 34%, 85%);"></span> Agricultura</div>
+      <div class="item"><span class="box" style="background:hsl(199, 44%, 59%);"></span> Agua</div>
+      <div class="item"><span class="box" style="background:hsl(54, 86%, 83%);"></span> Arena</div>
+      <div class="item"><span class="box" style="background:hsl(74, 31%, 70%);"></span> Bosque</div>
+      <div class="item"><span class="box" style="background:hsl(79, 35%, 81%);"></span> Hierba</div>
+      <div class="item"><span class="box" style="background:hsl(75, 37%, 75%);"></span> Matorral</div>
+      <div class="item"><span class="box" style="background:hsl(37, 11%, 77%);"></span> Edificios</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,100%);"></span> Glaciar</div>
 
-    <div class="category-title">Áreas protegidas</div>
-    <div class="item"><span class="box" style="background:hsl(110, 30%, 38%);"></span> Reserva natural</div>
-  </div>
+      <div class="category-title">Zonas urbanas</div>
+      <div class="item"><span class="box" style="background:hsl(45,14%,71%);"></span> Residencial</div>
+      <div class="item"><span class="box" style="background:hsl(60, 0%, 96%);"></span> Peatonal</div>
+      <div class="item"><span class="box" style="background:hsl(325, 26%, 91%);"></span> Hospital</div>
+      <div class="item"><span class="box" style="background:hsl(90, 49%, 70%);"></span> Estadio</div>
+      <div class="item"><span class="box" style="background:hsla(42, 49%, 93%, 0.6);"></span> Puente</div>
 
-  <!-- ========================= -->
-  <!--         LÍNEAS           -->
-  <!-- ========================= -->
-  <div class="column">
-    <div class="section-title">Líneas</div>
+      <div class="category-title">Áreas protegidas</div>
+      <div class="item"><span class="box" style="background:hsl(110, 30%, 38%);"></span> Reserva natural</div>
+    </div>
 
-    <div class="category-title">Ciclovías</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(185, 85%, 70%);"></span> Ruta Local (LCN)</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(315, 85%, 75%);"></span> Ruta Regional (RCN)</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(270, 85%, 75%);"></span> Ruta Nacional (NCN)</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(285, 90%, 75%);"></span> Ruta Internacional (ICN)</div>
+    <!-- ========================= -->
+    <!--         LÍNEAS           -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Líneas</div>
 
-    <div class="category-title">Caminos</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 20%); border-bottom-style:dashed;"></span> Track</div>
+      <div class="category-title">Ciclovías</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(185, 85%, 70%);"></span> Ruta Local (LCN)</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(315, 85%, 75%);"></span> Ruta Regional (RCN)</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(270, 85%, 75%);"></span> Ruta Nacional (NCN)</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(285, 90%, 75%);"></span> Ruta Internacional (ICN)</div>
 
-    <div class="category-title">Senderos</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 40%); border-bottom-style:dashed;"></span> Sendero</div>
+      <div class="category-title">Caminos</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 20%); border-bottom-style:dashed;"></span> Track</div>
 
-    <div class="category-title">Ferrocarril</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,73%);"></span> Tren</div>
+      <div class="category-title">Senderos</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 40%); border-bottom-style:dashed;"></span> Sendero</div>
 
-    <div class="category-title">Agua</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(199, 44%, 59%);"></span> Río / Canal</div>
+      <div class="category-title">Ferrocarril</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,73%);"></span> Tren</div>
 
-    <div class="category-title">Carreteras</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(48, 100%, 83%);"></span> Carretera principal</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(34, 100%, 77%);"></span> Autovía / Autopista</div>
+      <div class="category-title">Agua</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(199, 44%, 59%);"></span> Río / Canal</div>
 
-    <div class="category-title">Fronteras</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 45%);"></span> Frontera</div>
-    <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 45%); border-bottom-style:dashed;"></span> Frontera disputada</div>
+      <div class="category-title">Carreteras</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(48, 100%, 83%);"></span> Carretera principal</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(34, 100%, 77%);"></span> Autovía / Autopista</div>
+
+      <div class="category-title">Fronteras</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 45%);"></span> Frontera</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0, 0%, 45%); border-bottom-style:dashed;"></span> Frontera disputada</div>
+    </div>
 
   </div>
 </div>
-</div>
+
 </body>
 </html>
