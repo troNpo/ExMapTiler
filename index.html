@@ -5,151 +5,156 @@
   <title>Descargar Estilo MapTiler</title>
 
   <style>
-    body {
-      background-color: #0a0a0a;
-      color: #f5f5f5;
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+ body {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    /* PANEL PRINCIPAL */
-    .panel {
-      background: radial-gradient(circle at top, #2a0000 0, #120101 45%, #050505 100%);
-      padding: 18px;
-      border-radius: 14px;
-      width: 95%;
-      max-width: 460px;
-      max-height: 90vh;        /* 🔧 No se infla demasiado */
-      box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
-      border: 1px solid rgba(255, 60, 60, 0.8);
+/* PANEL PRINCIPAL */
+.panel {
+  background: radial-gradient(circle at top, #2a0000 0, #120101 45%, #050505 100%);
+  padding: 18px;
+  border-radius: 14px;
+  width: 95%;
+  max-width: 460px;
 
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      min-height: 0;           /* 🔧 Permite que los hijos usen vh */
-    }
+  /* 🔥 Dejamos que crezca según contenido, sin aplastar la leyenda */
+  height: auto;
+  max-height: none;
 
-    /* TÍTULO Y SUBTÍTULO */
-    h2 {
-      margin: 0 0 8px 0;
-      text-align: center;
-      font-size: 22px;
-      letter-spacing: 0.04em;
-      color: #ff4c4c;
-      text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-    }
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
+  border: 1px solid rgba(255, 60, 60, 0.8);
 
-    .subtitle {
-      text-align: center;
-      font-size: 12px;
-      color: #bbbbbb;
-      margin-bottom: 8px;
-    }
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
+}
 
-    /* AYUDA */
-    .help-toggle {
-      margin-top: 4px;
-      font-size: 13px;
-      color: #ff4c4c;
-      cursor: pointer;
-      text-align: right;
-      user-select: none;
-      transition: color 0.2s ease;
-    }
+/* TÍTULO Y SUBTÍTULO */
+h2 {
+  margin: 0 0 8px 0;
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: #ff4c4c;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
 
-    .help-toggle:hover {
-      color: #ff6b6b;
-    }
+.subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: #bbbbbb;
+  margin-bottom: 8px;
+}
 
-    .guide {
-      margin-top: 8px;
-      margin-bottom: 14px;
-      padding: 10px;
-      background-color: #1a0b0b;
-      border-left: 3px solid #ff2e2e;
-      border-radius: 6px;
-      font-size: 12px;
-      color: #e6e6e6;
-      line-height: 1.45;
-    }
+/* AYUDA */
+.help-toggle {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #ff4c4c;
+  cursor: pointer;
+  text-align: right;
+  user-select: none;
+  transition: color 0.2s ease;
+}
 
-    /* LABELS */
-    label {
-      display: block;
-      margin-top: 12px;
-      font-size: 14px;
-      color: #dddddd;
-    }
+.help-toggle:hover {
+  color: #ff6b6b;
+}
 
-    /* INPUTS Y SELECT */
-    input,
-    select {
-      width: 100%;
-      padding: 9px 10px;
-      margin-top: 6px;
-      border-radius: 8px;
-      border: 1px solid #3a3a3a;
-      background-color: #1b1b1b;
-      color: #ffffff;
-      font-size: 14px;
-      box-sizing: border-box;
-      outline: none;
-    }
+.guide {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  padding: 10px;
+  background-color: #1a0b0b;
+  border-left: 3px solid #ff2e2e;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #e6e6e6;
+  line-height: 1.45;
+}
 
-    input:focus,
-    select:focus {
-      border-color: #ff3b3b;
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-    }
+/* LABELS */
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #dddddd;
+}
 
-    select optgroup {
-      color: #ff9b9b;
-      font-weight: bold;
-      background-color: #1b1b1b;
-    }
+/* INPUTS Y SELECT */
+input,
+select {
+  width: 100%;
+  padding: 9px 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+  background-color: #1b1b1b;
+  color: #ffffff;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
 
-    option {
-      background-color: #1b1b1b;
-      color: #ffffff;
-    }
+input:focus,
+select:focus {
+  border-color: #ff3b3b;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
 
-    /* BOTONES */
-    .btn {
-      width: 100%;
-      margin-top: 14px;
-      padding: 12px;
-      background: linear-gradient(90deg, #ff2b2b, #ff4848);
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
-    }
+select optgroup {
+  color: #ff9b9b;
+  font-weight: bold;
+  background-color: #1b1b1b;
+}
 
-    .btn:active {
-      transform: scale(0.97);
-      box-shadow: 0 0 6px rgba(255, 0, 0, 0.8);
-      background: linear-gradient(90deg, #ff1f1f, #ff3838);
-    }
+option {
+  background-color: #1b1b1b;
+  color: #ffffff;
+}
 
-    /* CONTENEDOR DE LEYENDA / VISTA PREVIA */
-  /* CONTENEDOR DE LEYENDA */
+/* BOTONES */
+.btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff2b2b, #ff4848);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.8);
+  background: linear-gradient(90deg, #ff1f1f, #ff3838);
+}
+
+/* CONTENEDOR DE LEYENDA / VISTA PREVIA */
 #legend-container {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 10px;
 
-  flex-grow: 1;             /* Se adapta al panel */
-  min-height: 420px;        /* Altura mínima coherente */
+  /* 🔥 Altura real y estable para leyenda y vista previa */
+  height: 60vh;
+  min-height: 420px;
+
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -159,42 +164,46 @@
 .legend-iframe {
   width: 100%;
   height: 100%;
-  min-height: 420px;     /* Igual que la vista previa */
+  min-height: 420px;
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0,150,255,0.3);
   background-color: #0a0a0a;
 }
 
+/* VISTA PREVIA */
+.preview-gallery {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 6px;
+}
+
+.preview-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.35);
+  background-color: #0a0a0a;
+  display: block;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: auto;
+  padding-bottom: 8px;
+  text-align: center;
+  font-size: 11px;
+  color: #777;
+  opacity: 0.7;
+}
 
 
-    /* VISTA PREVIA */
-    .preview-gallery {
-      height: 100%;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      padding-right: 6px;
-    }
+    
 
-    .preview-gallery img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0, 150, 255, 0.35);
-      background-color: #0a0a0a;
-      display: block;
-    }
 
-    /* FOOTER */
-    .footer {
-      margin-top: auto;
-      padding-bottom: 8px;
-      text-align: center;
-      font-size: 11px;
-      color: #777;
-      opacity: 0.7;
-    }
+   
   </style>
 </head>
 
