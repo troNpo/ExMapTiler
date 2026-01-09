@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background:#121212;
+  color:white;
+  font-family:sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing:border-box;
+}
+
+.legend {
+  flex: 1;
+  overflow-y: auto;
+  background:#1e1e1e;
+  padding:20px;
+  border-radius:8px;
+  border:1px solid #333;
+  width:100%;
+  max-width:100%;
+  margin:auto;
+  box-sizing:border-box;
+}
+
+.legend-title {
+  font-size:24px;
+  font-weight:bold;
+  color:#ff3333;
+  margin-bottom:20px;
+}
+
+.columns {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.column {
+  flex:1;
+  min-width:260px;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+.section-title {
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+  padding-bottom:6px;
+  border-bottom:1px solid #444;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.category-title {
+  font-size:15px;
+  font-weight:bold;
+  margin-top:10px;
+  color:#ccc;
+}
+
+.item {
+  display:flex;
+  align-items:center;
+  margin:4px 0;
+  font-size:14px;
+}
+
+.box {
+  width:60px;
+  height:14px;
+  margin-right:8px;
+  border-radius:3px;
+}
+
+.line {
+  width:60px;
+  height:0;
+  margin-right:8px;
+  border-bottom-width:3px;
+  border-bottom-style:solid;
+}
+</style>
+
+</head>
+<body>
+
+<div class="legend">
+
+  <div class="legend-title">Leyenda Streets</div>
+
+  <div class="columns">
+
+    <!-- ========================= -->
+    <!--         ÁREAS            -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Áreas</div>
+
+      <div class="item"><span class="box" style="background:hsl(77,77%,92%);"></span> Agricultura</div>
+      <div class="item"><span class="box" style="background:hsl(204,92%,75%);"></span> Agua</div>
+      <div class="item"><span class="box" style="background:hsl(52,93%,89%);"></span> Arena</div>
+      <div class="item"><span class="box" style="background:hsl(120,38%,76%);"></span> Bosque</div>
+      <div class="item"><span class="box" style="background:hsl(30,6%,73%);"></span> Edificios</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,100%);"></span> Hielo / Glaciar</div>
+
+      <div class="category-title">Zonas urbanas</div>
+      <div class="item"><span class="box" style="background:hsl(77,77%,92%);"></span> Vegetación urbana</div>
+      <div class="item"><span class="box" style="background:hsl(195,45%,96%);"></span> Escuela</div>
+      <div class="item"><span class="box" style="background:hsl(12,63%,94%);"></span> Hospital</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,94%);"></span> Zona de aeropuerto</div>
+      <div class="item"><span class="box" style="background:hsla(32,47%,87%,0.5);"></span> Cantera</div>
+      <div class="item"><span class="box" style="background:hsla(60,100%,90%,0.45);"></span> Comercial</div>
+      <div class="item"><span class="box" style="background:hsl(54,80%,98%);"></span> Peatonal</div>
+      <div class="item"><span class="box" style="background:hsl(66,79%,78%);"></span> Zoo</div>
+      <div class="item"><span class="box" style="background:hsl(94,100%,88%);"></span> Campo deportivo</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,100%);"></span> Construcción</div>
+      <div class="item"><span class="box" style="background:hsl(90,28%,90%);"></span> Militar</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,69%);"></span> Presa</div>
+      <div class="item"><span class="box" style="background:hsl(191,92%,75%);"></span> Piscina</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,100%);"></span> Helipuerto</div>
+      <div class="item"><span class="box" style="background:hsl(42,49%,93%);"></span> Puente</div>
+      <div class="item"><span class="box" style="background:hsl(42,49%,93%);"></span> Muelle</div>
+
+      <div class="category-title">Parques</div>
+      <div class="item"><span class="box" style="background:hsl(215,81%,98%);"></span> Aparcamiento</div>
+      <div class="item"><span class="box" style="background:hsl(218,80%,96%);"></span> Aparcamiento especial</div>
+    </div>
+
+    <!-- ========================= -->
+    <!--         LÍNEAS           -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Ciclovías</div>
+
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,75%);"></span> Ciclovía</div>
+
+      <div class="category-title">Ferrocarril</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,73%);"></span> Tren</div>
+
+      <div class="category-title">Senderos</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(33,9%,50%); border-bottom-style:dashed;"></span> Sendero</div>
+
+      <div class="category-title">Caminos</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(33,9%,60%); border-bottom-style:dashed;"></span> Camino / Track</div>
+
+      <div class="category-title">Ríos / Canales</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(210,73%,78%);"></span> Río</div>
+
+      <div class="category-title">Carreteras</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(35,100%,70%);"></span> Autopista</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(35,100%,70%);"></span> Carretera principal</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,85%);"></span> Carretera menor</div>
+
+      <div class="category-title">Aviación</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,85%);"></span> Aerovía</div>
+
+      <div class="category-title">Fronteras</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,54%);"></span> Frontera</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,70%); border-bottom-style:dashed;"></span> Frontera secundaria</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
