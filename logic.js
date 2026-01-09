@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const legendContainer = document.getElementById("legend-container");
   const statusBox = document.getElementById("status");
 
-  let legendVisible = false; // Estado del botón dinámico
+  let legendVisible = false;
 
   // ===============================
-  // MAPAS DE LEYENDAS Y CAPTURAS
+  // MAPAS DE LEYENDAS Y PREVIEWS
   // ===============================
 
   const legendMap = {
@@ -127,9 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const gallery = images.map(img =>
-      `<img src="vista/${img}" alt="${styleName}" loading="lazy">`
-    ).join("");
+    const gallery = images
+      .map(img => `<img src="vista/${img}" alt="${styleName}" loading="lazy">`)
+      .join("");
 
     legendContainer.innerHTML = `<div class="preview-gallery">${gallery}</div>`;
   }
@@ -138,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const style = selector.value;
     loadPreview(style);
 
-    // Reset del botón dinámico
     legendVisible = false;
     legendBtn.textContent = "Ver leyenda";
   });
@@ -157,14 +156,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     legendContainer.innerHTML = `
-  <iframe src="https://tronpo.github.io/ExMapTiler/leyend/${file}"
-          class="legend-iframe"></iframe>
-`;
-
+      <iframe src="https://tronpo.github.io/ExMapTiler/leyend/${file}"
+              class="legend-iframe"></iframe>
+    `;
   }
 
   // ===============================
-  // BOTÓN DINÁMICO: VER / CERRAR LEYENDA
+  // BOTÓN DINÁMICO
   // ===============================
 
   legendBtn.addEventListener("click", () => {
@@ -182,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===============================
-  // CARGA INICIAL (Cyclotron por defecto)
+  // CARGA INICIAL
   // ===============================
 
   selector.value = "cyclotron.map.json";
