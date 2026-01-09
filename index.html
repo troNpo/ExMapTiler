@@ -140,6 +140,13 @@ option {
   box-shadow: 0 0 6px rgba(255, 0, 0, 0.8);
   background: linear-gradient(90deg, #ff1f1f, #ff3838);
 }
+    /* PANEL PRINCIPAL: permite que los hijos usen vh reales */
+.panel {
+  flex-grow: 1;
+  min-height: 0;        /* 🔥 Clave para que 85vh funcione */
+  display: flex;
+  flex-direction: column;
+}
 
 /* CONTENEDOR DE LEYENDA / VISTA PREVIA (PADRE) */
 #legend-container {
@@ -147,9 +154,9 @@ option {
   margin-top: 20px;
   margin-bottom: 10px;
 
-  height: 85vh;            /* Altura dinámica: 55% del alto de pantalla */
-  max-height: 700px;       /* Límite superior opcional */
-  min-height: 380px;       /* Límite inferior opcional */
+  height: 85vh;          /* Altura dinámica según dispositivo */
+  max-height: 900px;     /* Opcional: límite superior */
+  min-height: 380px;     /* Opcional: límite inferior */
 
   display: flex;
   flex-direction: column;
@@ -159,7 +166,7 @@ option {
 /* LEYENDA (IFRAME) */
 #legend-container iframe {
   width: 100%;
-  height: 100%;            /* Se adapta al contenedor dinámico */
+  height: 100%;          /* Se adapta al contenedor dinámico */
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0,150,255,0.3);
@@ -168,7 +175,7 @@ option {
 
 /* CONTENEDOR DE VISTA PREVIA */
 .preview-gallery {
-  height: 100%;            /* Igual que la leyenda */
+  height: 100%;          /* Igual que la leyenda */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
