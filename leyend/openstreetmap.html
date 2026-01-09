@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background:#121212;
+  color:white;
+  font-family:sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing:border-box;
+}
+
+.legend {
+  flex: 1;
+  overflow-y: auto;
+  background:#1e1e1e;
+  padding:20px;
+  border-radius:8px;
+  border:1px solid #333;
+  width:100%;
+  max-width:100%;
+  margin:auto;
+  box-sizing:border-box;
+}
+
+.legend-title {
+  font-size:24px;
+  font-weight:bold;
+  color:#ff3333;
+  margin-bottom:20px;
+}
+
+.columns {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.column {
+  flex:1;
+  min-width:260px;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+.section-title {
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+  padding-bottom:6px;
+  border-bottom:1px solid #444;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.category-title {
+  font-size:15px;
+  font-weight:bold;
+  margin-top:10px;
+  color:#ccc;
+}
+
+.item {
+  display:flex;
+  align-items:center;
+  margin:4px 0;
+  font-size:14px;
+}
+
+.box {
+  width:60px;
+  height:14px;
+  margin-right:8px;
+  border-radius:3px;
+}
+
+.line {
+  width:60px;
+  height:0;
+  margin-right:8px;
+  border-bottom-width:3px;
+  border-bottom-style:solid;
+}
+</style>
+
+</head>
+<body>
+
+<div class="legend">
+
+  <div class="legend-title">Leyenda OpenStreetMap</div>
+
+  <div class="columns">
+
+    <!-- ========================= -->
+    <!--         ÁREAS            -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Áreas</div>
+
+      <div class="item"><span class="box" style="background:hsl(64,47%,89%);"></span> Agricultura</div>
+      <div class="item"><span class="box" style="background:hsl(194,45%,77%);"></span> Agua</div>
+      <div class="item"><span class="box" style="background:hsl(45,70%,87%);"></span> Arena</div>
+      <div class="item"><span class="box" style="background:hsl(102,36%,72%);"></span> Bosque</div>
+      <div class="item"><span class="box" style="background:hsl(180,28%,90%);"></span> Glaciar</div>
+      <div class="item"><span class="box" style="background:hsl(91,60%,81%);"></span> Hierba / Prado</div>
+      <div class="item"><span class="box" style="background:hsl(102,36%,72%);"></span> Humedal</div>
+      <div class="item"><span class="box" style="background:hsl(80,35%,76%);"></span> Matorral</div>
+
+      <div class="category-title">Zonas urbanas</div>
+      <div class="item"><span class="box" style="background:hsl(129,24%,73%);"></span> Cementerio</div>
+      <div class="item"><span class="box" style="background:hsl(0,75%,95%);"></span> Militar</div>
+      <div class="item"><span class="box" style="background:hsl(311,29%,89%);"></span> Industrial</div>
+      <div class="item"><span class="box" style="background:hsl(7,100%,91%);"></span> Retail</div>
+      <div class="item"><span class="box" style="background:hsl(2,49%,90%);"></span> Comercial</div>
+      <div class="item"><span class="box" style="background:hsl(60,100%,95%);"></span> Educación / Salud</div>
+      <div class="item"><span class="box" style="background:hsl(126,100%,92%);"></span> Estadio</div>
+      <div class="item"><span class="box" style="background:hsl(157,47%,77%);"></span> Campo deportivo</div>
+      <div class="item"><span class="box" style="background:hsl(91,60%,81%);"></span> Jardín</div>
+      <div class="item"><span class="box" style="background:hsl(28,19%,84%);"></span> Zona mareal</div>
+      <div class="item"><span class="box" style="background:hsl(30,35%,90%);"></span> Roca</div>
+      <div class="item"><span class="box" style="background:hsl(48,100%,86%);"></span> Playa</div>
+      <div class="item"><span class="box" style="background:hsl(102,36%,82%);"></span> Huertos</div>
+      <div class="item"><span class="box" style="background:hsl(42,49%,93%);"></span> Muelle</div>
+      <div class="item"><span class="box" style="background:hsl(240,19%,89%);"></span> Peatonal</div>
+
+      <div class="category-title">Parques</div>
+      <div class="item"><span class="box" style="background:hsl(125,83%,88%);"></span> Parque urbano</div>
+    </div>
+
+    <!-- ========================= -->
+    <!--         LÍNEAS           -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Carreteras</div>
+
+      <div class="item"><span class="line" style="border-bottom-color:hsl(34,95%,92%);"></span> Carretera principal</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(63,86%,92%);"></span> Carretera secundaria</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,100%);"></span> Carretera terciaria</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(36,5%,80%);"></span> Calle</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,100%);"></span> Servicio</div>
+
+      <div class="category-title">Ciclovías</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(240,100%,50%); border-bottom-style:dashed;"></span> Ciclovía</div>
+
+      <div class="category-title">Senderos</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,40%); border-bottom-style:dashed;"></span> Sendero</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(120,100%,25%); border-bottom-style:dashed;"></span> Bridleway</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(6,93%,71%); border-bottom-style:dashed;"></span> Footway</div>
+
+      <div class="category-title">Ferrocarril</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,65%);"></span> Tren</div>
+
+      <div class="category-title">Ríos / Canales</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(210,73%,78%);"></span> Río</div>
+
+      <div class="category-title">Ferry</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(240,90%,73%); border-bottom-style:dashed;"></span> Ferry</div>
+
+      <div class="category-title">Aviación</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(234,25%,76%);"></span> Pista</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(234,25%,76%);"></span> Rodaje</div>
+
+      <div class="category-title">Fronteras</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(303,17%,56%);"></span> Frontera</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(246,17%,56%); border-bottom-style:dashed;"></span> Frontera disputada</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
