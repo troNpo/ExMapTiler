@@ -163,13 +163,14 @@ option {
 }
 /* CONTENEDOR DE VISTA PREVIA */
 .preview-gallery {
+  height: 520px;       
+  overflow-y: auto;     
   display: flex;
   flex-direction: column;
-  gap: 14px;                 /* separación entre capturas */
-  max-height: 520px;         /* mismo alto que la leyenda */
-  overflow-y: auto;          /* scroll si hay varias capturas */
-  padding-right: 6px;        /* evita que el scroll tape contenido */
+  gap: 14px;
+  padding-right: 6px;
 }
+
 
 /* ESTILO DE CADA CAPTURA */
 .preview-gallery img {
