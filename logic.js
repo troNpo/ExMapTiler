@@ -30,7 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "openstreetmap.map.json": "openstreetmap.html",
     "winter.map.json": "winter.html",
     "satellite-hb.map.json": "satellite-hb.html",
-    "satellite.map.json": "satellite.html"   // ⭐ NUEVO
+    "satellite.map.json": "satellite.html",
+    "street.map.json": "street.html"
+
 };
 
 
@@ -46,7 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "openstreetmap.map.json": ["openstreetmap1.PNG", "openstreetmap2.PNG"],
     "winter.map.json": ["winter1.PNG", "winter2.PNG"],
     "satellite-hb.map.json": ["satellite-hb1.PNG", "satellite-hb2.PNG"],
-    "satellite.map.json": ["satellite1.PNG", "satellite2.PNG"] 
+    "satellite.map.json": ["satellite1.PNG", "satellite2.PNG"],
+    "street.map.json": ["street1.PNG", "street2.PNG"]
 };
 
 
