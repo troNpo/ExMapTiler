@@ -185,15 +185,15 @@
             "tileSize": 512
         },
 		"outdoor": {
-      "url": "https://api.maptiler.com/tiles/outdoor/tiles.json?key= {{API_KEY}}",
+      "url": "https://api.maptiler.com/tiles/outdoor/tiles.json?key={{API_KEY}}",
       "type": "vector"
     },
     "contours": {
-      "url": "https://api.maptiler.com/tiles/contours-v2/tiles.json?key= {{API_KEY}}",
+      "url": "https://api.maptiler.com/tiles/contours-v2/tiles.json?key={{API_KEY}}",
       "type": "vector"
     },
     "landform": {
-      "url": "https://api.maptiler.com/tiles/landform/tiles.json?key= {{API_KEY}}",
+      "url": "https://api.maptiler.com/tiles/landform/tiles.json?key={{API_KEY}}",
       "type": "vector"
     },
     "maptiler_attribution": {
@@ -201,16 +201,16 @@
       "type": "vector"
     },
     "maptiler_planet_v4": {
-      "url": "https://api.maptiler.com/tiles/v4/tiles.json?key= {{API_KEY}}",
+      "url": "https://api.maptiler.com/tiles/v4/tiles.json?key={{API_KEY}}",
       "type": "vector"
     },
     "terrain_rgb": {
-      "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key= {{API_KEY}}",
+      "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key={{API_KEY}}",
       "type": "raster-dem"
     }
   },
-  "sprite": "https://api.maptiler.com/maps/topo-v4/sprite?key= {{API_KEY}}",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key= {{API_KEY}}",
+  "sprite": "https://api.maptiler.com/maps/topo-v4/sprite?key={{API_KEY}}",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={{API_KEY}}",
   "layers": [
     {
   "id": "Background",
