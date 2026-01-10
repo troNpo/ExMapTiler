@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background:#121212;
+  color:white;
+  font-family:sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing:border-box;
+}
+
+.legend {
+  flex: 1;
+  overflow-y: auto;
+  background:#1e1e1e;
+  padding:20px;
+  border-radius:8px;
+  border:1px solid #333;
+  width:100%;
+  max-width:100%;
+  margin:auto;
+  box-sizing:border-box;
+}
+
+.legend-title {
+  font-size:24px;
+  font-weight:bold;
+  color:#ff3333;
+  margin-bottom:20px;
+}
+
+.columns {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.column {
+  flex:1;
+  min-width:260px;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+.section-title {
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+  padding-bottom:6px;
+  border-bottom:1px solid #444;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.category-title {
+  font-size:15px;
+  font-weight:bold;
+  margin-top:10px;
+  color:#ccc;
+}
+
+.item {
+  display:flex;
+  align-items:center;
+  margin:4px 0;
+  font-size:14px;
+}
+
+.box {
+  width:60px;
+  height:14px;
+  margin-right:8px;
+  border-radius:3px;
+}
+
+.line {
+  width:60px;
+  height:0;
+  margin-right:8px;
+  border-bottom-width:3px;
+  border-bottom-style:solid;
+}
+</style>
+
+</head>
+<body>
+
+<div class="legend">
+
+  <div class="legend-title">Leyenda Winter</div>
+
+  <div class="columns">
+
+    <!-- ========================= -->
+    <!--         ÁREAS            -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Áreas</div>
+
+      <div class="item"><span class="box" style="background:hsla(156,89%,79%,0.57);"></span> Arena</div>
+      <div class="item"><span class="box" style="background:hsl(180,20%,66%);"></span> Bosque</div>
+      <div class="item"><span class="box" style="background:hsl(180,96%,90%);"></span> Glaciar</div>
+      <div class="item"><span class="box" style="background:hsl(165,49%,80%);"></span> Hierba</div>
+      <div class="item"><span class="box" style="background:hsl(180,60%,94%);"></span> Matorral</div>
+
+      <div class="category-title">Zonas urbanas</div>
+      <div class="item"><span class="box" style="background:hsl(180,22%,77%);"></span> Cementerio</div>
+      <div class="item"><span class="box" style="background:hsl(259,50%,91%);"></span> Hospital</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,88%);"></span> Comercial</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,88%);"></span> Industrial</div>
+      <div class="item"><span class="box" style="background:hsl(174,46%,89%);"></span> Estadio</div>
+      <div class="item"><span class="box" style="background:hsl(175,29%,92%);"></span> Aeropuerto</div>
+      <div class="item"><span class="box" style="background:hsl(0,0%,95%);"></span> Puente</div>
+      <div class="item"><span class="box" style="background:hsl(192,33%,97%);"></span> Muelle</div>
+
+      <div class="category-title">Zonas de esquí</div>
+      <div class="item"><span class="box" style="background:hsla(111,81%,39%,0.25);"></span> Principiante</div>
+      <div class="item"><span class="box" style="background:hsla(209,64%,49%,0.25);"></span> Fácil</div>
+      <div class="item"><span class="box" style="background:hsla(0,63%,54%,0.25);"></span> Intermedio</div>
+      <div class="item"><span class="box" style="background:hsla(0,0%,4%,0.25);"></span> Avanzado</div>
+
+      <div class="category-title">Parques</div>
+      <div class="item"><span class="box" style="background:hsl(210,51%,40%);"></span> Aparcamiento</div>
+    </div>
+
+    <!-- ========================= -->
+    <!--         LÍNEAS           -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Caminos y senderos</div>
+
+      <div class="item"><span class="line" style="border-bottom-color:hsl(24,3%,72%); border-bottom-style:dashed;"></span> Camino / Track</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,76%); border-bottom-style:dashed;"></span> Sendero</div>
+
+      <div class="category-title">Ferrocarril</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,73%);"></span> Tren</div>
+
+      <div class="category-title">Pistas de esquí</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(183,78%,60%);"></span> Pista nórdica</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,3%);"></span> Avanzada</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,63%,54%);"></span> Intermedia</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(209,64%,49%);"></span> Fácil</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(111,81%,39%);"></span> Principiante</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(240,12%,58%); border-bottom-style:dashed;"></span> Freeride</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(291,75%,67%); border-bottom-style:dashed;"></span> Trineo</div>
+
+      <div class="category-title">Remontes</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,48%);"></span> Cinta transportadora</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,48%);"></span> Telesquí</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,48%);"></span> Telesilla</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,48%);"></span> Telecabina</div>
+
+      <div class="category-title">Agua</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(213,10%,62%);"></span> Acantilado</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(180,13%,78%);"></span> Pista de aterrizaje</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,83%);"></span> Rodaje</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(213,39%,44%);"></span> Curva índice</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(212,39%,49%);"></span> Curva</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(183,100%,40%);"></span> Curva glaciar</div>
+
+      <div class="category-title">Fronteras</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(223,19%,54%);"></span> Frontera</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(223,19%,54%); border-bottom-style:dashed;"></span> Frontera disputada</div>
+
+      <div class="category-title">Ferry</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(0,0%,100%); border-bottom-style:dashed;"></span> Ferry</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
