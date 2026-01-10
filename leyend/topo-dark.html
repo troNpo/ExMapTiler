@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background:#121212;
+  color:white;
+  font-family:sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing:border-box;
+}
+
+.legend {
+  flex: 1;
+  overflow-y: auto;
+  background:#1e1e1e;
+  padding:20px;
+  border-radius:8px;
+  border:1px solid #333;
+  width:100%;
+  max-width:100%;
+  margin:auto;
+  box-sizing:border-box;
+}
+
+.legend-title {
+  font-size:24px;
+  font-weight:bold;
+  color:#ff3333;
+  margin-bottom:20px;
+}
+
+.columns {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.column {
+  flex:1;
+  min-width:260px;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+.section-title {
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+  padding-bottom:6px;
+  border-bottom:1px solid #444;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.category-title {
+  font-size:15px;
+  font-weight:bold;
+  margin-top:10px;
+  color:#ccc;
+}
+
+.item {
+  display:flex;
+  align-items:center;
+  margin:4px 0;
+  font-size:14px;
+}
+
+.box {
+  width:60px;
+  height:14px;
+  margin-right:8px;
+  border-radius:3px;
+}
+
+.line {
+  width:60px;
+  height:0;
+  margin-right:8px;
+  border-bottom-width:3px;
+  border-bottom-style:solid;
+}
+</style>
+
+</head>
+<body>
+
+<div class="legend">
+
+  <div class="legend-title">Leyenda Topo‑Dark</div>
+
+  <div class="columns">
+
+    <!-- ========================= -->
+    <!--         ÁREAS            -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Áreas</div>
+
+      <div class="item"><span class="box" style="background:hsl(45,20%,18%);"></span> Agricultura</div>
+      <div class="item"><span class="box" style="background:hsl(200,60%,28%);"></span> Agua</div>
+      <div class="item"><span class="box" style="background:hsl(45,20%,20%);"></span> Arena</div>
+      <div class="item"><span class="box" style="background:hsl(95,12%,14%);"></span> Bosque</div>
+      <div class="item"><span class="box" style="background:hsl(220,8%,32%);"></span> Edificios</div>
+      <div class="item"><span class="box" style="background:hsl(200,25%,40%);"></span> Glaciar</div>
+      <div class="item"><span class="box" style="background:hsl(95,10%,18%);"></span> Hierba</div>
+      <div class="item"><span class="box" style="background:hsl(95,15%,16%);"></span> Matorral</div>
+
+      <div class="category-title">Zonas urbanas</div>
+      <div class="item"><span class="box" style="background:hsl(220,10%,18%);"></span> Residencial</div>
+      <div class="item"><span class="box" style="background:hsl(220,8%,30%);"></span> Peatonal</div>
+      <div class="item"><span class="box" style="background:hsl(220,8%,22%);"></span> Presa</div>
+      <div class="item"><span class="box" style="background:hsl(220,6%,16%);"></span> Cementerio</div>
+      <div class="item"><span class="box" style="background:hsl(325,10%,22%);"></span> Hospital</div>
+      <div class="item"><span class="box" style="background:hsl(95,12%,20%);"></span> Estadio</div>
+      <div class="item"><span class="box" style="background:hsl(220,10%,22%);"></span> Puente</div>
+
+      <div class="category-title">Áreas protegidas</div>
+      <div class="item"><span class="box" style="background:hsl(110,12%,16%);"></span> Reserva natural</div>
+    </div>
+
+    <!-- ========================= -->
+    <!--         LÍNEAS           -->
+    <!-- ========================= -->
+    <div class="column">
+      <div class="section-title">Carreteras</div>
+
+      <div class="item"><span class="line" style="border-bottom-color:hsl(25,40%,55%);"></span> Autopista</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(35,38%,58%);"></span> Autovía</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(45,35%,60%);"></span> Carretera principal</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(75,25%,55%);"></span> Carretera secundaria</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(185,25%,55%);"></span> Carretera terciaria</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(220,10%,45%);"></span> Carretera menor</div>
+
+      <div class="category-title">Caminos</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(220,10%,25%); border-bottom-style:dashed;"></span> Camino / Track</div>
+
+      <div class="category-title">Ciclovías</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(200,25%,55%);"></span> Ciclovía</div>
+
+      <div class="category-title">Senderos</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(220,10%,50%); border-bottom-style:dashed;"></span> Sendero</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(30,20%,55%); border-bottom-style:dashed;"></span> Bridleway</div>
+
+      <div class="category-title">Ferrocarril</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(220,12%,38%);"></span> Tren</div>
+
+      <div class="category-title">Agua</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(200,65%,45%);"></span> Río / Canal</div>
+
+      <div class="category-title">Curvas de nivel</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(210,20%,32%);"></span> Curva índice</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(210,18%,26%);"></span> Curva</div>
+
+      <div class="category-title">Acantilados</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(9,9%,55%);"></span> Acantilado</div>
+
+      <div class="category-title">Aviación</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(220,12%,45%);"></span> Aerovía</div>
+
+      <div class="category-title">Fronteras</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(220,15%,60%);"></span> Frontera</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(220,12%,55%); border-bottom-style:dashed;"></span> Frontera disputada</div>
+      <div class="item"><span class="line" style="border-bottom-color:hsl(220,10%,45%); border-bottom-style:dashed;"></span> Frontera secundaria</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
