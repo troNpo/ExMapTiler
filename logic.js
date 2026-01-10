@@ -18,14 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // MAPAS DE LEYENDAS Y PREVIEWS
   // ===============================
 
-  const legendMap = {
+ const legendMap = {
     "outron.map.json": "outron.html",
     "cyclotron.map.json": "cyclotron.html",
     "cyclotron-dark.map.json": "cyclotron-dark.html",
     "hikingtron.map.json": "hikingtron.html",
     "satron.map.json": "satron.html",
-    "topo-dark.map.json": "topo-dark.html"
-  };
+    "topo-dark.map.json": "topo-dark.html",
+    "topo.map.json": "topo.html",
+    "outdoor.map.json": "outdoor.html",
+    "openstreetmap.map.json": "openstreetmap.html",
+    "winter.map.json": "winter.html",
+    "satellite-hb.map.json": "satellite-hb.html",
+    "satellite.map.json": "satellite.html"   // ⭐ NUEVO
+};
+
 
   const previewMap = {
     "outron.map.json": ["outron1.PNG", "outron2.PNG"],
