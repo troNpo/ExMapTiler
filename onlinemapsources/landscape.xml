@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<onlinemapsources>
+
+  <onlinemapsource uid="400000">
+    <name>Landscape (MAPTILER)</name>
+    <url><![CDATA[https://api.maptiler.com/maps/landscape/256/{$z}/{$x}/{$y}.png?key={{API_KEY}}]]></url>
+    <website><![CDATA[<font color="#000000">©MAPTILER Landscape</font>]]></website>
+    <minzoom>1</minzoom>
+    <maxzoom>20</maxzoom>
+    <projection>MERCATORESFERICA</projection>
+    <servers>a,b,c</servers>
+    <httpparam name="User-Agent">{om}</httpparam>
+    <cacheable>1</cacheable>
+    <downloadable>1</downloadable>
+    <maxtilesday>0</maxtilesday>
+    <maxthreads>0</maxthreads>
+    <xop></xop>
+    <yop></yop>
+    <zop></zop>
+    <qop></qop>
+    <sop></sop>
+  </onlinemapsource>
+
+</onlinemapsources>
