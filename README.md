@@ -1,33 +1,44 @@
 # ExMapTiler
 <img width="1600" height="900" alt="IMG_1125" src="https://github.com/user-attachments/assets/e9af63ae-8a47-46d1-bd47-d790749c7256" />
 
-Repository of vector map styles adapted for **OruxMaps** (Android/iOS), using **MapTiler** data sources.  
-This project is designed to make it easier for OruxMaps users to load external styles (non‑Mapbox) in the 3D viewer.
-
-A valid OruxMaps subscription to premium maps is required to access advanced features such as the 3D viewer.
+Repository of **vector and raster map styles** adapted for **OruxMaps** (Android/iOS), using **MapTiler** data sources.  
+This project includes two web consoles that allow users to download styles using their own MapTiler API key.
 
 ---
 
 ## What this repository provides
 
-- Vector styles compatible with MapTiler and OruxMaps.
-- Adaptations specifically tuned for full 3D viewer functionality.
-- A web console to download styles using your own MapTiler API key.
+- Vector styles ready to use in OruxMaps  
+- Raster styles in `onlinemapsources.xml` format  
+- Two web consoles for downloading styles with your API key  
+- Compatibility with Android and iOS  
+
+---
+
+## Web consoles
+
+### Vector console  
+Download `.map.json` styles for OruxMaps.  
+👉 https://tronpo.github.io/ExMapTiler/
+
+### Raster console  
+Download `onlinemapsources.xml` raster styles.  
+👉 https://tronpo.github.io/ExMapTiler/raster.html
 
 ---
 
 ## Useful links
 
-- OruxMaps on Google Play  
+- **OruxMaps on Google Play**  
   https://play.google.com/store/apps/details?id=com.orux.oruxmapsDonate
 
-- OruxMaps on the App Store  
+- **OruxMaps on the App Store**  
   https://apps.apple.com/app/oruxmaps-gps-maps/id1615192826
 
-- MapTiler  
+- **MapTiler**  
   https://www.maptiler.com/
 
-- Mapbox  
+- **Mapbox**  
   https://www.mapbox.com/
 
 ---
@@ -35,29 +46,44 @@ A valid OruxMaps subscription to premium maps is required to access advanced fea
 ## How to obtain your MapTiler API key
 
 1. Go to https://www.maptiler.com/cloud/  
-2. Sign up or log in.  
-3. Open your user dashboard.  
-4. Copy your API key from the **Credentials** section.
+2. Sign up or log in  
+3. Open your user dashboard  
+4. Copy your API key from the **Credentials** section  
 
-This key will be inserted into the style before downloading.
+The console will automatically insert your key before downloading the style.
 
 ---
 
-## How to use the style download console
+## Using the vector style console
 
-Open the web interface here:  
-https://tronpo.github.io/ExMapTiler/
+1. Open the console:  
+   https://tronpo.github.io/ExMapTiler/
 
-Steps:
+2. Enter your API key  
+3. Select a vector style  
+4. Click **Download style**  
+5. Save the `.json` file into:  
+   `OruxMaps/mapfiles/`  
+6. Select the style inside OruxMaps  
 
-1. Enter your MapTiler API key.  
-2. Select the style you want (Outron, Outdoor, Topo, etc.).  
-3. Click **Download style**.  
-4. The `.json` file will download with its exact name.  
-5. Save the file into the folder:  
-   `OruxMaps/Maps`  
-   (on Android or iOS, depending on your installation).  
-6. Select the style from the **map selector** inside OruxMaps.
+**Note:** Vector styles require an OruxMaps Premium subscription to access the 3D viewer and advanced features.
+
+---
+
+## Using the raster style console
+
+1. Open the console:  
+   https://tronpo.github.io/ExMapTiler/raster.html
+
+2. Enter your API key  
+3. Select a raster style  
+4. Click **Download style**  
+5. Save the `.xml` file into:  
+   - **Android:** `OruxMaps/customonlinemaps/`  
+   - **iOS:** `OruxMaps/mapfiles/`  
+6. Activate the map inside OruxMaps  
+
+Raster styles work without a Premium subscription.
 
 ---
 
@@ -65,12 +91,10 @@ Steps:
 
 This project uses resources from:
 
-- MapTiler — styles, tiles, and vector data  
+- **MapTiler** — styles, tiles, and vector/raster data  
   https://www.maptiler.com/
 
-- Mapbox — technical compatibility with the style specification  
+- **Mapbox** — technical compatibility with the style specification  
   https://www.mapbox.com/
 
 All styles respect the licenses and terms of use of both platforms.
-
----
