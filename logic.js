@@ -37,16 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   const previewMap = {
-    "outron.map.json": ["outron1.PNG", "outron2.PNG", "outron3.PNG"],
-    "cyclotron.map.json": ["cyclotron1.PNG", "cyclotron2.PNG", "cyclotron3.PNG"],
-    "cyclotron-dark.map.json": ["cyclotron-dark1.PNG", "cyclotron-dark2.PNG", "cyclotron-dark3.PNG"],
-    "hikingtron.map.json": ["hikingtron1.PNG", "hikingtron2.PNG", "hikingtron3.PNG"],
+    "outron.map.json": ["outron1.PNG", "outron2.PNG", "outron3.JPG"],
+    "cyclotron.map.json": ["cyclotron1.PNG", "cyclotron2.PNG", "cyclotron3.JPG"],
+    "cyclotron-dark.map.json": ["cyclotron-dark1.PNG", "cyclotron-dark2.PNG", "cyclotron-dark3.JPG"],
+    "hikingtron.map.json": ["hikingtron1.PNG", "hikingtron2.PNG", "hikingtron3.JPG"],
     "satron.map.json": ["satron1.PNG", "satron2.PNG"],
     "topo-dark.map.json": ["topo-dark1.PNG", "topo-dark2.PNG"],
     "topo.map.json": ["topo1.PNG", "topo2.PNG"],
-    "outdoor.map.json": ["outdoor1.PNG", "outdoor2.PNG", "outdoor3.PNG"],
+    "outdoor.map.json": ["outdoor1.PNG", "outdoor2.PNG", "outdoor3.JPG"],
     "openstreetmap.map.json": ["openstreetmap1.PNG", "openstreetmap2.PNG"],
-    "winter.map.json": ["winter1.PNG", "winter2.PNG", "winter3.PNG"],
+    "winter.map.json": ["winter1.PNG", "winter2.PNG", "winter3.JPG"],
     "satellite-hb.map.json": ["satellite-hb1.PNG", "satellite-hb2.PNG"],
     "satellite.map.json": ["satellite1.PNG", "satellite2.PNG"],
     "streets.map.json": ["street1.PNG", "street2.PNG"]
