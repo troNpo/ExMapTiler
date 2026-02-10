@@ -79,7 +79,7 @@ The console will automatically insert your key before downloading the style.
 3. Select a raster style  
 4. Click **Download style**  
 5. Save the `.xml` file into:  
-   - **Android:** `OruxMaps/customonlinemaps/`  
+   - **Android:** `OruxMaps/mapfiles/customonlinemaps/`  
    - **iOS:** `OruxMaps/mapfiles/`  
 6. Activate the map inside OruxMaps  
 
